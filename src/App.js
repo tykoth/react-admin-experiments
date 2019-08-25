@@ -20,6 +20,7 @@ import invoices from './resources/invoices';
 import categories from './resources/categories';
 import reviews from './resources/reviews';
 import servers from './resources/servers';
+import posts from './resources/posts';
 
 
 // import posts from './resources/posts';
@@ -39,7 +40,7 @@ import PersonIcon from '@material-ui/icons/People';
 import ServerList from './resources/servers/ServerList';
 import ServerCreate from './resources/servers/ServerCreate';
 import { ListGuesser, ShowGuesser, EditGuesser } from 'react-admin';
-import { PostList, PostEdit, PostCreate, PostShow } from './resources/posts';
+// import { PostList, PostEdit, PostCreate, PostShow } from './resources/posts';
 import { UserList } from './resources/users';
 
 import PostIcon from '@material-ui/icons/Book';
@@ -113,12 +114,13 @@ componentWillUnmount() {
 
        <Resource 
             name="posts"
-            icon={PostIcon}
-            list={PostList}
+            {...posts}
+            // icon={PostIcon}
+            // list={PostList}
           
-            edit={PostEdit}
-            create={PostCreate}
-            show={PostShow}
+            // edit={PostEdit}
+            // create={PostCreate}
+            // show={PostShow}
         />        
         
         

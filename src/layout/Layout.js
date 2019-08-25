@@ -29,7 +29,9 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: 'column',
         flexGrow: 2,
-        padding: theme.spacing.unit * 3,
+        padding:0,
+        width:'100%',
+        // padding: theme.spacing.unit * 3,
         marginTop: '0em',
         // paddingLeft: 5,
         overflow:'auto',
@@ -39,12 +41,12 @@ const styles = theme => ({
 });
 const CustomSidebar = props => <Sidebar {...props} 
 style={{
-    backgroundColor:"rgba(255,255,255,0.75)"
+    // backgroundColor:"rgba(255,255,255,0.75)"
 }} />;
 const CustomLayout = props => (
     <Layout {...props} 
     style={{
-        backgroundImage:"url(" + saturnJpg + ")",
+        // backgroundImage:"url(" + saturnJpg + ")",
         height:"100%"
     }}
     appBar={AppBar} 

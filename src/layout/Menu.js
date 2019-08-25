@@ -28,6 +28,7 @@ class Menu extends Component {
         menuCatalog: false,
         menuSales: false,
         menuCustomers: false,
+        menuTools: false
     };
 
     static propTypes = {
@@ -97,7 +98,7 @@ class Menu extends Component {
                     handleToggle={() => this.handleToggle('menuCatalog')}
                     isOpen={this.state.menuCatalog}
                     sidebarIsOpen={open}
-                    name="pos.menu.catalog"
+                    name="Catalog"
                     icon={<products.icon />}
                 >
                     <MenuItemLink
@@ -108,14 +109,14 @@ class Menu extends Component {
                         leftIcon={<products.icon />}
                         onClick={onMenuClick}
                     />
-                    <MenuItemLink
+                    {/* <MenuItemLink
                         to={`/categories`}
                         primaryText={translate(`resources.categories.name`, {
                             smart_count: 2,
                         })}
                         leftIcon={<categories.icon />}
                         onClick={onMenuClick}
-                    />
+                    /> */}
                 </SubMenu>
                 <SubMenu
                     handleToggle={() => this.handleToggle('menuCustomer')}

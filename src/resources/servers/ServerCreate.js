@@ -18,7 +18,7 @@ export const styles = {
 const ServerCreate = ({ classes, ...props }) => (
     <Create {...props}>
         <TabbedForm>
-            <FormTab label="resources.servers.tabs.identity">
+            <FormTab label="Server">
                 <TextInput
                     source="name"
                 />
@@ -30,7 +30,11 @@ const ServerCreate = ({ classes, ...props }) => (
                 />
                 <DateInput source="birthday" />
             </FormTab>
-            <FormTab label="resources.servers.tabs.address" path="address">
+
+            <FormTab label="Services" path="address">
+            </FormTab>
+
+            <FormTab label="Services" path="address">
             </FormTab>
         </TabbedForm>
     </Create>

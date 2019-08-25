@@ -27,12 +27,7 @@ export const styles = {
 const PersonCreate = ({ classes, ...props }) => (
     <Create {...props}>
         <TabbedForm>
-            <FormTab label="resources.persons.tabs.identity">
-                <TextInput
-                    
-                    source="avatar"
-                    formClassName={classes.first_name}
-                />
+            <FormTab label="Identification">
                 <TextInput
                     autoFocus
                     source="first_name"
@@ -50,6 +45,11 @@ const PersonCreate = ({ classes, ...props }) => (
                     formClassName={classes.email}
                 />
                 <DateInput source="birthday" />
+                <TextInput
+                    
+                    source="avatar"
+                    formClassName={classes.first_name}
+                />
             </FormTab>
             <FormTab label="resources.persons.tabs.address" path="address">
                 <LongTextInput
