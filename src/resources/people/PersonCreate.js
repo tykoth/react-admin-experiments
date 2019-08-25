@@ -10,8 +10,13 @@ import {
 import withStyles from '@material-ui/core/styles/withStyles';
 
 export const styles = {
-    first_name: { display: 'inline-block' },
-    last_name: { display: 'inline-block', marginLeft: 32 },
+    first_name: { 
+        // display: 'inline-block' 
+    },
+    last_name: {
+        //  display: 'inline-block', 
+        //  marginLeft: 32 
+        },
     email: { width: 544 },
     address: { maxWidth: 544 },
     zipcode: { display: 'inline-block' },
@@ -41,7 +46,7 @@ const PersonCreate = ({ classes, ...props }) => (
                     type="email"
                     source="email"
                     validation={{ email: true }}
-                    fullWidth={true}
+                    // fullWidth={true}
                     formClassName={classes.email}
                 />
                 <DateInput source="birthday" />
@@ -52,12 +57,12 @@ const PersonCreate = ({ classes, ...props }) => (
                 />
             </FormTab>
             <FormTab label="resources.persons.tabs.address" path="address">
+                <TextInput source="zipcode" formClassName={classes.zipcode} />
+                <TextInput source="city" formClassName={classes.city} />
                 <LongTextInput
                     source="address"
                     formClassName={classes.address}
                 />
-                <TextInput source="zipcode" formClassName={classes.zipcode} />
-                <TextInput source="city" formClassName={classes.city} />
             </FormTab>
         </TabbedForm>
     </Create>

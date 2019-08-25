@@ -54,6 +54,46 @@ class Menu extends Component {
                     leftIcon={<visitors.icon />}
                     onClick={onMenuClick}
                 />
+                <SubMenu
+                    handleToggle={() => this.handleToggle('menuTools')}
+                    isOpen={this.state.menuTools}
+                    sidebarIsOpen={open}
+                    name="Tools"
+                    icon={<BuildIcon />}
+                >
+                <MenuItemLink
+                    to={`/csvimportercard`}
+                    primaryText={translate(`CSV Importer`, {
+                        smart_count: 2,
+                    })}
+                    leftIcon={<visitors.icon />}
+                    onClick={onMenuClick}
+                />
+                <MenuItemLink
+                    to={`/hosts`}
+                    primaryText={translate(`resources.customers.name`, {
+                        smart_count: 2,
+                    })}
+                    leftIcon={<visitors.icon />}
+                    onClick={onMenuClick}
+                />
+                    <MenuItemLink
+                        to={`/dotenv`}
+                        primaryText={translate(`resources.segments.name`, {
+                            smart_count: 2,
+                        })}
+                        leftIcon={<LabelIcon />}
+                        onClick={onMenuClick}
+                    />
+                    <MenuItemLink
+                        to={`/themeeditor`}
+                        primaryText={translate(`Theme Editor`, {
+                            smart_count: 2,
+                        })}
+                        leftIcon={<LabelIcon />}
+                        onClick={onMenuClick}
+                    />
+                </SubMenu>
                 <MenuItemLink
                     to={`/servers`}
                     primaryText={translate(`resources.servers.name`, {
@@ -136,38 +176,6 @@ class Menu extends Component {
                     <MenuItemLink
                         to={`/segments`}
                         primaryText={translate(`resources.segments.name`, {
-                            smart_count: 2,
-                        })}
-                        leftIcon={<LabelIcon />}
-                        onClick={onMenuClick}
-                    />
-                </SubMenu>
-                <SubMenu
-                    handleToggle={() => this.handleToggle('menuTools')}
-                    isOpen={this.state.menuTools}
-                    sidebarIsOpen={open}
-                    name="Tools"
-                    icon={<BuildIcon />}
-                >
-                    <MenuItemLink
-                        to={`/hosts`}
-                        primaryText={translate(`resources.customers.name`, {
-                            smart_count: 2,
-                        })}
-                        leftIcon={<visitors.icon />}
-                        onClick={onMenuClick}
-                    />
-                    <MenuItemLink
-                        to={`/dotenv`}
-                        primaryText={translate(`resources.segments.name`, {
-                            smart_count: 2,
-                        })}
-                        leftIcon={<LabelIcon />}
-                        onClick={onMenuClick}
-                    />
-                    <MenuItemLink
-                        to={`/themeeditor`}
-                        primaryText={translate(`Theme Editor`, {
                             smart_count: 2,
                         })}
                         leftIcon={<LabelIcon />}
