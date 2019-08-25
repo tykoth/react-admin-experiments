@@ -1,0 +1,282 @@
+{
+    "projects": [
+        {
+            "id": 87,
+            "name": "Funkmp3",
+            "identifier": "funkmp3",
+            "description": "Website funkmp3",
+            "status": 1,
+            "is_public": true,
+            "created_on": "2019-07-31T20:48:25Z",
+            "updated_on": "2019-07-31T20:48:25Z"
+        },
+        {
+            "id": 9,
+            "name": "General",
+            "identifier": "general",
+            "description": "Todas as tarefas, independente de projeto.\r\n",
+            "status": 5,
+            "is_public": true,
+            "created_on": "2018-06-02T08:27:00Z",
+            "updated_on": "2018-06-02T09:05:56Z"
+        },
+        {
+            "id": 3,
+            "name": "Global Games",
+            "identifier": "global-games",
+            "description": "Projetos vinculados à Global Games",
+            "status": 5,
+            "is_public": true,
+            "created_on": "2018-05-30T06:00:25Z",
+            "updated_on": "2018-05-30T06:00:25Z"
+        },
+        {
+            "id": 4,
+            "name": "Daybreak Online",
+            "identifier": "daybreak-online",
+            "description": "Projeto relacionado ao jogo Daybreak Online da Global Games.",
+            "parent": {
+                "id": 3,
+                "name": "Global Games"
+            },
+            "status": 5,
+            "is_public": true,
+            "created_on": "2018-05-30T06:00:56Z",
+            "updated_on": "2018-05-30T06:00:56Z"
+        },
+        {
+            "id": 70,
+            "name": "Engenharia Reversa do Client",
+            "identifier": "engenharia-reversa-do-client",
+            "description": "",
+            "parent": {
+                "id": 4,
+                "name": "Daybreak Online"
+            },
+            "status": 5,
+            "is_public": true,
+            "created_on": "2018-06-06T07:51:21Z",
+            "updated_on": "2018-06-06T07:51:21Z"
+        },
+        {
+            "id": 72,
+            "name": "Health Guardian",
+            "identifier": "health-guardian",
+            "description": "",
+            "status": 5,
+            "is_public": true,
+            "created_on": "2018-06-09T05:51:24Z",
+            "updated_on": "2018-06-09T05:51:24Z"
+        },
+        {
+            "id": 10,
+            "name": "Home",
+            "identifier": "home",
+            "description": "",
+            "status": 5,
+            "is_public": true,
+            "created_on": "2018-06-02T08:27:17Z",
+            "updated_on": "2018-06-02T08:27:17Z"
+        },
+        {
+            "id": 1,
+            "name": "Lab",
+            "identifier": "lab",
+            "description": "",
+            "status": 1,
+            "is_public": true,
+            "created_on": "2018-05-28T23:57:49Z",
+            "updated_on": "2018-05-28T23:57:49Z"
+        },
+        {
+            "id": 77,
+            "name": "Frontbot React 2019",
+            "identifier": "frontbot-react-2019",
+            "description": "",
+            "parent": {
+                "id": 1,
+                "name": "Lab"
+            },
+            "status": 1,
+            "is_public": true,
+            "created_on": "2019-07-05T19:13:52Z",
+            "updated_on": "2019-07-05T19:13:52Z"
+        },
+        {
+            "id": 2,
+            "name": "Hotspot Manager",
+            "identifier": "hotspot-manager",
+            "description": "Aplicativo desktop para gestão de venda de vouchers para internet, integrado com roteador Mikrotik.",
+            "parent": {
+                "id": 1,
+                "name": "Lab"
+            },
+            "status": 1,
+            "is_public": true,
+            "created_on": "2018-05-30T04:27:59Z",
+            "updated_on": "2018-05-30T04:27:59Z"
+        },
+        {
+            "id": 78,
+            "name": "Joystick Canvas with Socket",
+            "identifier": "joystick-canvas-with-socket",
+            "description": "",
+            "parent": {
+                "id": 1,
+                "name": "Lab"
+            },
+            "status": 1,
+            "is_public": true,
+            "created_on": "2019-07-05T19:15:12Z",
+            "updated_on": "2019-07-05T19:15:12Z"
+        },
+        {
+            "id": 79,
+            "name": "My React App",
+            "identifier": "my-react-app",
+            "description": "",
+            "parent": {
+                "id": 1,
+                "name": "Lab"
+            },
+            "status": 1,
+            "is_public": true,
+            "created_on": "2019-07-05T19:17:56Z",
+            "updated_on": "2019-07-05T19:17:56Z"
+        },
+        {
+            "id": 8,
+            "name": "self-service",
+            "identifier": "self-service",
+            "description": "",
+            "parent": {
+                "id": 1,
+                "name": "Lab"
+            },
+            "status": 1,
+            "is_public": true,
+            "created_on": "2018-06-01T12:17:25Z",
+            "updated_on": "2018-06-01T12:17:25Z"
+        },
+        {
+            "id": 76,
+            "name": "NSFW",
+            "identifier": "nsfw",
+            "description": "",
+            "status": 1,
+            "is_public": true,
+            "created_on": "2019-05-16T10:28:44Z",
+            "updated_on": "2019-05-16T10:28:44Z"
+        },
+        {
+            "id": 6,
+            "name": "NobreakNet",
+            "identifier": "nobreaknet",
+            "description": "Projeto de sistema interno usando API Mikrotik",
+            "status": 1,
+            "is_public": true,
+            "created_on": "2018-05-31T19:47:25Z",
+            "updated_on": "2018-05-31T19:47:25Z"
+        },
+        {
+            "id": 73,
+            "name": "OSINT",
+            "identifier": "osint",
+            "description": "",
+            "status": 1,
+            "is_public": true,
+            "created_on": "2018-08-12T05:43:32Z",
+            "updated_on": "2018-08-12T05:43:32Z"
+        },
+        {
+            "id": 80,
+            "name": "PMN",
+            "identifier": "pmn",
+            "description": "",
+            "status": 1,
+            "is_public": true,
+            "created_on": "2019-07-12T09:08:56Z",
+            "updated_on": "2019-07-12T09:08:56Z"
+        },
+        {
+            "id": 35,
+            "name": "PROT02",
+            "identifier": "frontbot",
+            "description": "null",
+            "status": 5,
+            "is_public": true,
+            "created_on": "2018-06-02T11:18:41Z",
+            "updated_on": "2018-06-02T11:18:41Z"
+        },
+        {
+            "id": 75,
+            "name": "Painel Hidromares",
+            "identifier": "painel-hidromares",
+            "description": "",
+            "status": 1,
+            "is_public": true,
+            "created_on": "2019-05-11T17:06:28Z",
+            "updated_on": "2019-05-11T17:06:28Z"
+        },
+        {
+            "id": 5,
+            "name": "Redmine WBS",
+            "identifier": "redmine-wbs",
+            "description": "",
+            "status": 5,
+            "is_public": true,
+            "created_on": "2018-05-31T18:59:05Z",
+            "updated_on": "2018-05-31T18:59:05Z"
+        },
+        {
+            "id": 11,
+            "name": "Tael",
+            "identifier": "tael",
+            "description": "NodeJS personal assistant.",
+            "status": 1,
+            "is_public": true,
+            "created_on": "2018-06-02T10:56:17Z",
+            "updated_on": "2018-06-02T10:56:17Z"
+        },
+        {
+            "id": 69,
+            "name": "Targets",
+            "identifier": "targets",
+            "description": "",
+            "status": 1,
+            "is_public": true,
+            "created_on": "2018-06-02T17:26:17Z",
+            "updated_on": "2018-06-02T17:26:17Z"
+        },
+        {
+            "id": 71,
+            "name": "TechBlog",
+            "identifier": "techblog",
+            "description": "Idéias de posts para um blog de tecnologia.\r\nOs posts serão escritos aqui e importados para suas respectivas páginas (isso se houver mais de um).",
+            "status": 1,
+            "is_public": true,
+            "created_on": "2018-06-08T04:05:38Z",
+            "updated_on": "2018-06-08T04:05:38Z"
+        },
+        {
+            "id": 74,
+            "name": "Treinamento ATP",
+            "identifier": "treinamento-atp",
+            "description": "Treinamento ATP",
+            "status": 1,
+            "is_public": true,
+            "created_on": "2018-08-27T14:41:05Z",
+            "updated_on": "2018-08-27T14:41:05Z"
+        },
+        {
+            "id": 17,
+            "name": "afinador",
+            "identifier": "afinador",
+            "description": "afinador: An Ionic project",
+            "status": 5,
+            "is_public": true,
+            "created_on": "2018-06-02T11:17:28Z",
+            "updated_on": "2018-06-02T11:17:28Z"
+        }
+    ]
+}

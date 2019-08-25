@@ -1,0 +1,63 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { Layout, Sidebar } from 'react-admin';
+import AppBar from './AppBar';
+import Menu from './Menu';
+import { darkTheme, lightTheme, newTheme } from './themes';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+    root: {
+        display: 'flex',
+        flexDirection: 'column',
+        zIndex: 1,
+        minHeight: '100vh',
+        backgroundColor: theme.palette.background.default,
+        position: 'relative',
+    },
+    appFrame: {
+        display: 'flex',
+        flexDirection: 'column',
+        overflowX: 'auto',
+        minHeight: '100vh',
+    },
+    contentWithSidebar: {
+        display: 'flex',
+        flexGrow: 1,
+    },
+    content: {
+        display: 'flex',
+        flexDirection: 'column',
+        flexGrow: 2,
+        padding: theme.spacing.unit * 3,
+        marginTop: '0em',
+        // paddingLeft: 5,
+        overflow:'auto',
+        maxHeight: '85vh',
+        // marginTop:0
+    },
+});
+const CustomSidebar = props => <Sidebar {...props} 
+style={{
+    backgroundColor:"rgba(0,0,0,0.75)"
+    // backgroundImage:"url(http://osint.dev.br/img/saturn.jpg)"
+}} />;
+const CustomLayout = props => (
+    <Layout {...props} 
+    style={{
+        // backgroundColor:"black"
+        backgroundImage:"url(http://osint.dev.br/img/saturn.jpg)",
+        height:"100%"
+    }}
+    appBar={AppBar} 
+    sidebar={CustomSidebar} 
+    menu={Menu} 
+    />
+);
+
+export default connect(
+    state => ({
+        theme: state.theme === 'dark' ? darkTheme : newTheme,
+    }),
+    {}
+)(withStyles(styles)(CustomLayout));
