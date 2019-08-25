@@ -13,6 +13,7 @@ import {
     TabbedForm,
     TextField,
     TextInput,
+    CloneButton
 } from 'react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
 import RichTextInput from 'ra-input-rich-text';
@@ -38,6 +39,7 @@ const ProductEdit = ({ classes, ...props }) => (
     <Edit {...props} title={<ProductTitle />}>
         <TabbedForm>
             <FormTab label="resources.products.tabs.image">
+                    <CloneButton />
                 <Poster />
                 <TextInput source="image" options={{ fullWidth: true }} />
                 <TextInput source="thumbnail" options={{ fullWidth: true }} />
@@ -83,6 +85,7 @@ const ProductEdit = ({ classes, ...props }) => (
                         />
                         <TextField source="status" />
                         <EditButton />
+
                     </Datagrid>
                 </ReferenceManyField>
             </FormTab>
