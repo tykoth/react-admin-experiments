@@ -21,6 +21,12 @@ import categories from './resources/categories';
 import reviews from './resources/reviews';
 import servers from './resources/servers';
 
+
+// import posts from './resources/posts';
+// import users from './resources/users';
+import tags from './resources/tags';
+// import comments from './resources/comments';
+
 // import themeReducer from './themeReducer';
 import dexieDataProxiver from './providers/dexie'
 
@@ -33,7 +39,12 @@ import PersonIcon from '@material-ui/icons/People';
 import ServerList from './resources/servers/ServerList';
 import ServerCreate from './resources/servers/ServerCreate';
 import { ListGuesser, ShowGuesser, EditGuesser } from 'react-admin';
+import { PostList, PostEdit, PostCreate, PostShow } from './resources/posts';
+import { UserList } from './resources/users';
 
+import PostIcon from '@material-ui/icons/Book';
+import UserIcon from '@material-ui/icons/Group';
+  
 const i18nProvider = locale => {
   if (locale === 'fr') {
       return import('./i18n/fr').then(messages => messages.default);
@@ -100,6 +111,19 @@ componentWillUnmount() {
       >
        
 
+       <Resource 
+            name="posts"
+            icon={PostIcon}
+            list={PostList}
+          
+            edit={PostEdit}
+            create={PostCreate}
+            show={PostShow}
+        />        
+        
+        
+        <Resource name="users" icon={UserIcon} list={UserList} />
+
       <Resource name="servers" {...{
         create:ServerCreate,
         list: ListGuesser,
@@ -109,11 +133,16 @@ componentWillUnmount() {
     }} />
 
  <Resource name="people" {...people} />
+ <Resource name="tags" {...tags} />
+            {/* <Resource name="posts" {...posts} />, */}
+            {/* <Resource name="comments" {...comments} />, */}
  
  
+
+
+
  
- 
- {/* <Resource name="customers" {...visitors} /> */}
+ <Resource name="customers" {...visitors} />
                 <Resource
                     name="commands"
                     {...orders} 

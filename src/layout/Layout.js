@@ -5,7 +5,7 @@ import AppBar from './AppBar';
 import Menu from './Menu';
 import { darkTheme, lightTheme, newTheme } from './themes';
 import { withStyles } from '@material-ui/core/styles';
-
+import saturnJpg from './saturn.jpg'
 const styles = theme => ({
     root: {
         display: 'flex',
@@ -33,20 +33,18 @@ const styles = theme => ({
         marginTop: '0em',
         // paddingLeft: 5,
         overflow:'auto',
-        maxHeight: '85vh',
+        // maxHeight: '85vh',
         // marginTop:0
     },
 });
 const CustomSidebar = props => <Sidebar {...props} 
 style={{
-    backgroundColor:"rgba(0,0,0,0.75)"
-    // backgroundImage:"url(http://osint.dev.br/img/saturn.jpg)"
+    backgroundColor:"rgba(255,255,255,0.75)"
 }} />;
 const CustomLayout = props => (
     <Layout {...props} 
     style={{
-        // backgroundColor:"black"
-        backgroundImage:"url(http://osint.dev.br/img/saturn.jpg)",
+        backgroundImage:"url(" + saturnJpg + ")",
         height:"100%"
     }}
     appBar={AppBar} 
@@ -57,7 +55,7 @@ const CustomLayout = props => (
 
 export default connect(
     state => ({
-        theme: state.theme === 'dark' ? darkTheme : newTheme,
+        theme: state.theme === 'dark' ? newTheme : lightTheme,
     }),
     {}
 )(withStyles(styles)(CustomLayout));
