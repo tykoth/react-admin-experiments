@@ -13,6 +13,9 @@ import {
     TabbedForm,
     TextField,
     TextInput,
+    ArrayInput, SimpleFormIterator, DateInput,
+    ReferenceArrayInput, AutocompleteArrayInput,
+    CloneButton
 } from 'react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
 import RichTextInput from 'ra-input-rich-text';
@@ -38,9 +41,22 @@ const ProductEdit = ({ classes, ...props }) => (
     <Edit {...props} title={<ProductTitle />}>
         <TabbedForm>
             <FormTab label="resources.products.tabs.image">
+                    <CloneButton />
                 <Poster />
                 <TextInput source="image" options={{ fullWidth: true }} />
-                <TextInput source="thumbnail" options={{ fullWidth: true }} />
+                <TextInput source="thumbnail" options={{ fullWidth: true }} /><ReferenceArrayInput
+                    reference="tags"
+                    source="tags"
+                    filter={{ published: true }}
+                >
+                    <AutocompleteArrayInput fullWidth />
+                </ReferenceArrayInput>
+                <ArrayInput source="backlinks">
+                    <SimpleFormIterator>
+                        <DateInput source="date" />
+                        <TextInput source="url" />
+                    </SimpleFormIterator>
+                </ArrayInput>
             </FormTab>
             <FormTab label="resources.products.tabs.details" path="details">
                 <TextInput source="reference" />
@@ -83,6 +99,7 @@ const ProductEdit = ({ classes, ...props }) => (
                         />
                         <TextField source="status" />
                         <EditButton />
+
                     </Datagrid>
                 </ReferenceManyField>
             </FormTab>

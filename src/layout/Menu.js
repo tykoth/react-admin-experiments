@@ -20,11 +20,15 @@ import categories from '../resources/categories';
 import reviews from '../resources/reviews';
 import SubMenu from './SubMenu';
 
+import BuildIcon from '@material-ui/icons/Build';
+
+
 class Menu extends Component {
     state = {
         menuCatalog: false,
         menuSales: false,
         menuCustomers: false,
+        menuTools: false
     };
 
     static propTypes = {
@@ -50,6 +54,46 @@ class Menu extends Component {
                     leftIcon={<visitors.icon />}
                     onClick={onMenuClick}
                 />
+                <SubMenu
+                    handleToggle={() => this.handleToggle('menuTools')}
+                    isOpen={this.state.menuTools}
+                    sidebarIsOpen={open}
+                    name="Tools"
+                    icon={<BuildIcon />}
+                >
+                <MenuItemLink
+                    to={`/csvimportercard`}
+                    primaryText={translate(`CSV Importer`, {
+                        smart_count: 2,
+                    })}
+                    leftIcon={<visitors.icon />}
+                    onClick={onMenuClick}
+                />
+                <MenuItemLink
+                    to={`/hosts`}
+                    primaryText={translate(`resources.customers.name`, {
+                        smart_count: 2,
+                    })}
+                    leftIcon={<visitors.icon />}
+                    onClick={onMenuClick}
+                />
+                    <MenuItemLink
+                        to={`/dotenv`}
+                        primaryText={translate(`resources.segments.name`, {
+                            smart_count: 2,
+                        })}
+                        leftIcon={<LabelIcon />}
+                        onClick={onMenuClick}
+                    />
+                    <MenuItemLink
+                        to={`/themeeditor`}
+                        primaryText={translate(`Theme Editor`, {
+                            smart_count: 2,
+                        })}
+                        leftIcon={<LabelIcon />}
+                        onClick={onMenuClick}
+                    />
+                </SubMenu>
                 <MenuItemLink
                     to={`/servers`}
                     primaryText={translate(`resources.servers.name`, {
@@ -94,7 +138,7 @@ class Menu extends Component {
                     handleToggle={() => this.handleToggle('menuCatalog')}
                     isOpen={this.state.menuCatalog}
                     sidebarIsOpen={open}
-                    name="pos.menu.catalog"
+                    name="Catalog"
                     icon={<products.icon />}
                 >
                     <MenuItemLink
@@ -105,14 +149,14 @@ class Menu extends Component {
                         leftIcon={<products.icon />}
                         onClick={onMenuClick}
                     />
-                    <MenuItemLink
+                    {/* <MenuItemLink
                         to={`/categories`}
                         primaryText={translate(`resources.categories.name`, {
                             smart_count: 2,
                         })}
                         leftIcon={<categories.icon />}
                         onClick={onMenuClick}
-                    />
+                    /> */}
                 </SubMenu>
                 <SubMenu
                     handleToggle={() => this.handleToggle('menuCustomer')}

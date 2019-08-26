@@ -11,6 +11,7 @@ import {
 import Chip from '@material-ui/core/Chip';
 import withStyles from '@material-ui/core/styles/withStyles';
 import GridList from './GridList';
+import ServerCreate from './ServerCreate';
 
 const quickFilterStyles = {
     root: {
@@ -47,6 +48,8 @@ export const ServerFilter = props => (
 );
 
 const ServerList = props => (
+
+    <Fragment>
     <List
         {...props}
         filters={<ServerFilter />}
@@ -55,6 +58,50 @@ const ServerList = props => (
     >
         <GridList />
     </List>
+                <Route path="/servers/create">
+                    {({ match }) => (
+                        <Drawer
+                            open={!!match}
+                            anchor="right"
+                            onClose={this.handleClose}
+                        >
+                            <ServerCreate
+                                className={classes.drawerContent}
+                                onCancel={this.handleClose}
+                                {...props}
+                            />
+                        </Drawer>
+                    )}
+                </Route>
+                <Route path="/servers/:id">
+                    {({ match }) => {
+                        const isMatch =
+                            match &&
+                            match.params &&
+                            match.params.id !== 'create';
+
+                        return (
+                            <Drawer
+                                open={isMatch}
+                                anchor="right"
+                                onClose={this.handleClose}
+                            >
+                                {isMatch ? (
+                                    <ServerEdit
+                                        className={classes.drawerContent}
+                                        id={isMatch ? match.params.id : null}
+                                        onCancel={this.handleClose}
+                                        {...props}
+                                    />
+                                ) : (
+                                    <div className={classes.drawerContent} />
+                                )}
+                            </Drawer>
+                        );
+                    }}
+                </Route>
+
+            </Fragment>
 );
 
 export default ServerList;

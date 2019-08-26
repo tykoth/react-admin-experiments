@@ -10,6 +10,23 @@ import PendingOrders from './PendingOrders';
 import PendingReviews from './PendingReviews';
 import NewCustomers from './NewCustomers';
 
+import AppBar from '@material-ui/core/AppBar';
+import Modal from '@material-ui/core/Modal';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import InputIcon from '@material-ui/icons/Input';
+import ViewListIcon from '@material-ui/icons/ViewList';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import FindInPageIcon from '@material-ui/icons/FindInPage';
+import PhoneIcon from '@material-ui/icons/Phone';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import PersonPinIcon from '@material-ui/icons/PersonPin';
+import HelpIcon from '@material-ui/icons/Help';
+import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
+import ThumbDown from '@material-ui/icons/ThumbDown';
+import ThumbUp from '@material-ui/icons/ThumbUp';
+import MapIcon from '@material-ui/icons/Map';
+import { Icon } from '@material-ui/core';
 const styles = {
     flex: { display: 'flex' },
     flexColumn: { display: 'flex', flexDirection: 'column' },
@@ -146,75 +163,18 @@ class Dashboard extends Component {
             pendingReviewsCustomers,
             revenue,
         } = this.state;
+        const started = true;
+        const value = 0;
         return (
             <Responsive
                 xsmall={
-                    <div>
-                        <div style={styles.flexColumn}>
-                            <div style={{ marginBottom: '2em' }}>
-                                <Welcome />
-                            </div>
-                            <div style={styles.flex}>
-                                <MonthlyRevenue value={revenue} />
-                                <NbNewOrders value={nbNewOrders} />
-                            </div>
-                            <div style={styles.singleCol}>
-                                <PendingOrders
-                                    orders={pendingOrders}
-                                    customers={pendingOrdersCustomers}
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    <Welcome />
                 }
                 small={
-                    <div style={styles.flexColumn}>
-                        <div style={styles.singleCol}>
-                            <Welcome />
-                        </div>
-                        <div style={styles.flex}>
-                            <MonthlyRevenue value={revenue} />
-                            <NbNewOrders value={nbNewOrders} />
-                        </div>
-                        <div style={styles.singleCol}>
-                            <PendingOrders
-                                orders={pendingOrders}
-                                customers={pendingOrdersCustomers}
-                            />
-                        </div>
-                    </div>
+                    <Welcome />
                 }
                 medium={
-                    <div style={styles.flex}>
-                        <div style={styles.leftCol}>
-                            <div style={styles.flex}>
-                                <MonthlyRevenue value={revenue} />
-                                <NbNewOrders value={nbNewOrders} />
-                            </div>
-                            <div style={styles.singleCol}>
-                                <Welcome />
-                            </div>
-                            <div style={styles.singleCol}>
-                                <PendingOrders
-                                    orders={pendingOrders}
-                                    customers={pendingOrdersCustomers}
-                                />
-                            </div>
-                        </div>
-                        <div style={styles.rightCol}>
-                            <div style={styles.flex}>
-                                <PendingReviews
-                                    nb={nbPendingReviews}
-                                    reviews={pendingReviews}
-                                    customers={pendingReviewsCustomers}
-                                />
-                                <NewCustomers
-                                    nb={nbNewCustomers}
-                                    visitors={newCustomers}
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    <Welcome />
                 }
             />
         );

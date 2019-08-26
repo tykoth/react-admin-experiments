@@ -11,6 +11,7 @@ import {
     NumberField,
     Responsive,
     SearchInput,
+    CloneButton
 } from 'react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
 
@@ -27,6 +28,7 @@ const PersonFilter = props => (
         <NullableBooleanInput source="has_ordered" />
         <NullableBooleanInput source="has_newsletter" defaultValue />
         <SegmentInput />
+
     </Filter>
 );
 
@@ -47,19 +49,11 @@ const PersonList = ({ classes, ...props }) => (
                 <Datagrid>
                     <CustomerLinkField />
                     <DateField source="last_seen" type="date" />
-                    <NumberField
-                        source="nb_commands"
-                        label="resources.persons.fields.commands"
-                        className={classes.nb_commands}
-                    />
-                    <ColoredNumberField
-                        source="total_spent"
-                        options={{ style: 'currency', currency: 'USD' }}
-                    />
-                    <DateField source="latest_purchase" showTime />
-                    <BooleanField source="has_newsletter" label="News." />
+                    
                     <SegmentsField />
                     <EditButton />
+            <CloneButton />
+
                 </Datagrid>
             }
         />

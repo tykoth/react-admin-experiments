@@ -24,13 +24,14 @@ const mediaUrl = `https://marmelab.com/posters/beard-${parseInt(
 
 const Welcome = ({ classes, translate }) => (
     <Card>
-        <CardMedia image={mediaUrl} className={classes.media} />
         <CardContent>
             <Typography variant="headline" component="h2">
-                {translate('pos.dashboard.welcome.title')}
+                Experimentos com React-Admin, MaterialUI
+                {/* {translate('pos.dashboard.welcome.title')} */}
             </Typography>
             <Typography component="p">
-                {translate('pos.dashboard.welcome.subtitle')}
+                Em desenvolvimento
+                {/* {translate('pos.dashboard.welcome.subtitle')} */}
             </Typography>
         </CardContent>
         <CardActions style={{ justifyContent: 'flex-end' }}>

@@ -30,15 +30,8 @@ const PersonEdit = ({ classes, ...props }) => (
     <Edit title={<PersonTitle />} {...props}>
         <TabbedForm>
             <FormTab label="resources.persons.tabs.identity">
-                <TextInput
-                    
-                    source="avatar"
-                    formClassName={classes.first_name}
-                />
-                <TextInput
-                    source="first_name"
-                    formClassName={classes.first_name}
-                />
+                <TextInput source="avatar" />
+                <TextInput source="first_name" formClassName={classes.first_name} />
                 <TextInput
                     source="last_name"
                     formClassName={classes.last_name}
@@ -53,12 +46,12 @@ const PersonEdit = ({ classes, ...props }) => (
                 <DateInput source="birthday" />
             </FormTab>
             <FormTab label="resources.persons.tabs.address" path="address">
+                <TextInput source="zipcode" formClassName={classes.zipcode} />
+                <TextInput source="city" formClassName={classes.city} />
                 <LongTextInput
                     source="address"
                     formClassName={classes.address}
                 />
-                <TextInput source="zipcode" formClassName={classes.zipcode} />
-                <TextInput source="city" formClassName={classes.city} />
             </FormTab>
             <FormTab label="resources.persons.tabs.orders" path="orders">
                 <ReferenceManyField

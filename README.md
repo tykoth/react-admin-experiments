@@ -1,0 +1,1 @@
+Experimentos com React Admin visando utilização de mapas simples para gerar scaffoldings usando banco de dados local com Dexie.js.

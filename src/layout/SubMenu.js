@@ -14,10 +14,15 @@ import { translate } from 'react-admin';
 const styles = {
     listItem: {
         paddingLeft: '1rem',
+        color:"white"
     },
     listItemText: {
         paddingLeft: 2,
         fontSize: '1rem',
+        color:"white"
+    },
+    listItemIcon: {
+        color:'white'
     },
     sidebarIsOpen: {
         paddingLeft: 25,
@@ -46,7 +51,8 @@ const SubMenu = ({
             onClick={handleToggle}
             className={classes.listItem}
         >
-            <ListItemIcon>{isOpen ? <ExpandMore /> : icon}</ListItemIcon>
+            <ListItemIcon
+                className={classes.listItemIcon}>{isOpen ? <ExpandMore /> : icon}</ListItemIcon>
             <ListItemText
                 inset
                 primary={isOpen ? translate(name) : ''}

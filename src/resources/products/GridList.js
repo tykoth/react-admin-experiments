@@ -6,7 +6,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import { withStyles } from '@material-ui/core/styles';
 import withWidth from '@material-ui/core/withWidth';
 import { Link } from 'react-router-dom';
-import { NumberField } from 'react-admin';
+import { NumberField , CloneButton} from 'react-admin';
 import { linkToRecord } from 'ra-core';
 
 const styles = theme => ({
@@ -75,7 +75,7 @@ const LoadedGridList = ({ classes, ids, data, basePath, width }) => (
                     key={id}
                     to={linkToRecord(basePath, data[id].id)}
                 >
-                    <img src={data[id].thumbnail} alt="" />
+                    <img src={data[id].thumbnail + '?id=' + id} alt="" />
                     <GridListTileBar
                         className={classes.tileBar}
                         title={data[id].reference}
