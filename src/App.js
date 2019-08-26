@@ -80,7 +80,8 @@ class App extends Component {
       >
 
 
-        <Resource name="posts"  {...resources.posts} />
+<Resource name="posts"  {...resources.posts} />
+        <Resource name="servers"  {...resources.servers} />
         <Resource name="users" />
         <Resource name="people" {...resources.people} />
         <Resource name="tags" {...resources.tags} />

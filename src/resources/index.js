@@ -22,5 +22,6 @@ invoices,
 categories,
 reviews,
 servers,
-posts
+posts,
+servers
 }

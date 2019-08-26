@@ -57,8 +57,8 @@ export default (type, resource, params) => new Promise((resolve, reject) => {
 
       case GET_ONE:
       // alert("OK");
-      console.log(db.table(resource).schema.instanceTemplate);
-      alert("OK");
+      // console.log(db.table(resource).schema.instanceTemplate);
+      // alert("OK");
        db.table(resource).get(parseInt(params.id)).then((data) => {
         // console.log(data);
         // alert("OI");

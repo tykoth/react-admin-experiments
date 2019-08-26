@@ -41,7 +41,7 @@ const styles = theme => ({
 });
 const CustomSidebar = props => <Sidebar {...props} 
 style={{
-    // backgroundColor:"rgba(255,255,255,0.75)"
+    backgroundColor:"rgba(0,0,0,0.75)"
 }} />;
 const CustomLayout = props => (
     <Layout {...props} 
@@ -57,7 +57,7 @@ const CustomLayout = props => (
 
 export default connect(
     state => ({
-        theme: state.theme === 'dark' ? newTheme : lightTheme,
+        theme: state.theme === 'dark' ? darkTheme : state.theme === 'newtheme' ? newTheme : lightTheme,
     }),
     {}
 )(withStyles(styles)(CustomLayout));

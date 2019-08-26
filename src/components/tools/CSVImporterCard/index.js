@@ -101,9 +101,12 @@ import WebmGogs from './ezgif.com-gif-to-webm.webm'
 
 import ReactDataGrid from 'react-data-grid';
 import ScrollableTabsButtonForce from './ScrollableTabsButtonForce';
+import AceEditor from 'react-ace';
+import Editor from 'react-medium-editor';
 
 
-
+require('medium-editor/dist/css/medium-editor.css');
+require('medium-editor/dist/css/themes/default.css');
 
 
 const db = new Dexie('APP');
@@ -585,13 +588,15 @@ class MainDashboard extends Component {
             activeStep:0,
             csvImporterCardStep:0,
             csvImporterCardMaxSteps:10,
-            nlpInput:''
+            nlpInput:'',
+            text:''
         };
 
         this.rawData = [];
         this.onChangeSmartTextarea = this.onChangeSmartTextarea.bind(this);
 
         this.handleChangeTab = this.handleChangeTab.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         // this.chooseImage = this.chooseImage.bind(this);
         
         // this.processContent = this.processContent.bind(this);
@@ -812,6 +817,11 @@ class MainDashboard extends Component {
     handleChangeTab(event, value)
     {
         this.setState({ value });
+
+    }
+    handleChange(text, medium)
+    {
+        this.setState({ text:text });
 
     }
 
@@ -1062,6 +1072,37 @@ class MainDashboard extends Component {
         // const graphData = this.parseGraphData();
         return (
           <Card>
+
+                        <Grid container spacing={16}>
+
+            
+            <Grid item xs={6}>
+            <Editor text={this.state.text} onChange={this.handleChange} />
+
+            <AceEditor 
+              mode="javascript"
+              value={"//List"}
+              />
+              </Grid>
+            <Grid item xs={6}>
+            <AceEditor 
+              mode="javascript"
+              value={"//Edit"}
+              />
+              </Grid>
+            <Grid item xs={6}>
+            <AceEditor 
+              mode="javascript"
+              value={"//Create"}
+              />
+              </Grid>
+            <Grid item xs={6}>
+            <AceEditor 
+              mode="javascript"
+              value={"//Delete"}
+              />
+              </Grid>
+            </Grid>
           </Card>
       )
     }

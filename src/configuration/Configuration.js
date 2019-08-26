@@ -41,6 +41,14 @@ const Configuration = ({
             >
                 {translate('pos.theme.dark')}
             </Button>
+            <Button
+                variant="raised"
+                className={classes.button}
+                color={theme === 'newtheme' ? 'primary' : 'default'}
+                onClick={() => changeTheme('newtheme')}
+            >
+                {translate('pos.theme.newtheme')}
+            </Button>
         </CardContent>
         <CardContent>
             <div className={classes.label}>{translate('pos.language')}</div>

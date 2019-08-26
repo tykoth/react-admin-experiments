@@ -168,107 +168,13 @@ class Dashboard extends Component {
         return (
             <Responsive
                 xsmall={
-                    <div>
-                    <AppBar position="static" color="default">
-                      <Tabs
-                        value={value}
-                        onChange={this.handleChangeTab}
-                        variant="scrollable"
-                        scrollButtons="on"
-                        indicatorColor="primary"
-                        textColor="primary"
-                      >
-                      <Tab label="Input Data" 
-                      
-                          icon={<InputIcon />} />
-                        <Tab label="Validate JSON" 
-                             disabled={!started}
-                            icon={<FindInPageIcon />} />
-                        <Tab label="Preview Table" 
-                             disabled={!started}
-                            icon={<ViewListIcon />} />
-                        <Tab label="Configure Fields" 
-                             disabled={!started}
-                            icon={<Icon>adb</Icon>} />
-                        <Tab label="Preview Codes" 
-                             disabled={!started}
-                            icon={<AssignmentIcon />} />
-                        <Tab label="Create Local" 
-                            disabled={!started}
-                            icon={<ThumbDown />} />
-                        <Tab label="Graph" 
-                             disabled={!started}
-                            icon={<ThumbUp />} />
-                        <Tab label="Map" 
-                             disabled={!started}
-                            icon={<MapIcon />} />
-                      </Tabs>
-                    </AppBar>
-                        <div style={styles.flexColumn}>
-                            <div style={{ marginBottom: '2em' }}>
-                                <Welcome />
-                            </div>
-                            <div style={styles.flex}>
-                                <MonthlyRevenue value={revenue} />
-                                <NbNewOrders value={nbNewOrders} />
-                            </div>
-                            <div style={styles.singleCol}>
-                                <PendingOrders
-                                    orders={pendingOrders}
-                                    customers={pendingOrdersCustomers}
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    <Welcome />
                 }
                 small={
-                    <div style={styles.flexColumn}>
-                        <div style={styles.singleCol}>
-                            <Welcome />
-                        </div>
-                        <div style={styles.flex}>
-                            <MonthlyRevenue value={revenue} />
-                            <NbNewOrders value={nbNewOrders} />
-                        </div>
-                        <div style={styles.singleCol}>
-                            <PendingOrders
-                                orders={pendingOrders}
-                                customers={pendingOrdersCustomers}
-                            />
-                        </div>
-                    </div>
+                    <Welcome />
                 }
                 medium={
-                    <div style={styles.flex}>
-                        <div style={styles.leftCol}>
-                            <div style={styles.flex}>
-                                <MonthlyRevenue value={revenue} />
-                                <NbNewOrders value={nbNewOrders} />
-                            </div>
-                            <div style={styles.singleCol}>
-                                <Welcome />
-                            </div>
-                            <div style={styles.singleCol}>
-                                <PendingOrders
-                                    orders={pendingOrders}
-                                    customers={pendingOrdersCustomers}
-                                />
-                            </div>
-                        </div>
-                        <div style={styles.rightCol}>
-                            <div style={styles.flex}>
-                                <PendingReviews
-                                    nb={nbPendingReviews}
-                                    reviews={pendingReviews}
-                                    customers={pendingReviewsCustomers}
-                                />
-                                <NewCustomers
-                                    nb={nbNewCustomers}
-                                    visitors={newCustomers}
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    <Welcome />
                 }
             />
         );
