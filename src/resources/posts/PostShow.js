@@ -17,7 +17,6 @@ const PostShow = props => (
   <Show {...props}>
     <TabbedShowLayout>
       <Tab label="Summary">
-        <TextField source="id" />
         <TextField source="title" />
         <TextField source="teaser" />
       </Tab>
