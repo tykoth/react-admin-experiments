@@ -5,7 +5,8 @@ import AppBar from './AppBar';
 import Menu from './Menu';
 import { darkTheme, lightTheme, newTheme } from './themes';
 import { withStyles } from '@material-ui/core/styles';
-import saturnJpg from './saturn.jpg'
+// import saturnJpg from './saturn.jpg'
+
 const styles = theme => ({
     root: {
         display: 'flex',
@@ -39,19 +40,26 @@ const styles = theme => ({
         // marginTop:0
     },
 });
-const CustomSidebar = props => <Sidebar {...props} 
-style={{
-    backgroundColor:"rgba(0,0,0,0.75)"
-}} />;
+
+const CustomSidebar = props => (
+    <Sidebar
+        {...props}
+         style={{
+             backgroundColor:"rgba(0,0,0,0.75)"
+         }}
+    />
+);
+
 const CustomLayout = props => (
-    <Layout {...props} 
-    style={{
-        // backgroundImage:"url(" + saturnJpg + ")",
-        height:"100%"
-    }}
-    appBar={AppBar} 
-    sidebar={CustomSidebar} 
-    menu={Menu} 
+    <Layout
+        {...props}
+        style={{
+            // backgroundImage:"url(" + saturnJpg + ")",
+            height:"100%"
+        }}
+        appBar={AppBar}
+        sidebar={CustomSidebar}
+        menu={Menu}
     />
 );
 

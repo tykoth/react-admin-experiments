@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    BooleanField,
+    // BooleanField,
     Datagrid,
     DateField,
     DateInput,
@@ -8,7 +8,7 @@ import {
     Filter,
     List,
     NullableBooleanInput,
-    NumberField,
+    // NumberField,
     Responsive,
     SearchInput,
     CloneButton
@@ -18,7 +18,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import SegmentsField from './SegmentsField';
 import SegmentInput from './SegmentInput';
 import CustomerLinkField from './CustomerLinkField';
-import ColoredNumberField from './ColoredNumberField';
+// import ColoredNumberField from './ColoredNumberField';
 import MobileGrid from './MobileGrid';
 
 const PersonFilter = props => (
