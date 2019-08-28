@@ -3,7 +3,7 @@ import {
     Create,
     DateInput,
     FormTab,
-    LongTextInput,
+    // LongTextInput,
     TabbedForm,
     TextInput,
 } from 'react-admin';

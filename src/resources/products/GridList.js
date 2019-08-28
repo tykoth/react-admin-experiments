@@ -1,4 +1,5 @@
 import React from 'react';
+
 import compose from 'recompose/compose';
 import MuiGridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -6,7 +7,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import { withStyles } from '@material-ui/core/styles';
 import withWidth from '@material-ui/core/withWidth';
 import { Link } from 'react-router-dom';
-import { NumberField , CloneButton} from 'react-admin';
+import { NumberField } from 'react-admin';
 import { linkToRecord } from 'ra-core';
 
 const styles = theme => ({
