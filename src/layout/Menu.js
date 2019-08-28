@@ -16,7 +16,7 @@ import visitors from '../resources/visitors';
 import orders from '../resources/orders';
 import invoices from '../resources/invoices';
 import products from '../resources/products';
-import categories from '../resources/categories';
+// import categories from '../resources/categories';
 import reviews from '../resources/reviews';
 import SubMenu from './SubMenu';
 
@@ -24,20 +24,25 @@ import BuildIcon from '@material-ui/icons/Build';
 
 
 class Menu extends Component {
-    state = {
-        menuCatalog: false,
-        menuSales: false,
-        menuCustomers: false,
-        menuTools: false
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            menuCatalog: false,
+            menuSales: false,
+            menuCustomers: false,
+            menuTools: false
+        }
+    }
 
     static propTypes = {
         onMenuClick: PropTypes.func,
         logout: PropTypes.object,
     };
 
-    handleToggle = menu => {
-        this.setState(state => ({ [menu]: !state[menu] }));
+    handleToggle(menu = false) {
+        if (menu) {
+            this.setState(state => ({ [menu]: !state[menu] }));
+        }
     };
 
     render() {
@@ -61,22 +66,22 @@ class Menu extends Component {
                     name="Tools"
                     icon={<BuildIcon />}
                 >
-                <MenuItemLink
-                    to={`/csvimportercard`}
-                    primaryText={translate(`CSV Importer`, {
-                        smart_count: 2,
-                    })}
-                    leftIcon={<visitors.icon />}
-                    onClick={onMenuClick}
-                />
-                <MenuItemLink
-                    to={`/hosts`}
-                    primaryText={translate(`resources.customers.name`, {
-                        smart_count: 2,
-                    })}
-                    leftIcon={<visitors.icon />}
-                    onClick={onMenuClick}
-                />
+                    <MenuItemLink
+                        to={`/csvimportercard`}
+                        primaryText={translate(`CSV Importer`, {
+                            smart_count: 2,
+                        })}
+                        leftIcon={<visitors.icon />}
+                        onClick={onMenuClick}
+                    />
+                    <MenuItemLink
+                        to={`/hosts`}
+                        primaryText={translate(`resources.customers.name`, {
+                            smart_count: 2,
+                        })}
+                        leftIcon={<visitors.icon />}
+                        onClick={onMenuClick}
+                    />
                     <MenuItemLink
                         to={`/dotenv`}
                         primaryText={translate(`resources.segments.name`, {

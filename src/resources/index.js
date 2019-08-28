@@ -1,4 +1,3 @@
-
 import people from './people';
 import visitors from './visitors';
 import orders from './orders';
@@ -14,14 +13,13 @@ import posts from './posts';
 // import comments from './resources/comments';
 
 export default {
-people,
-visitors,
-orders,
-products,
-invoices,
-categories,
-reviews,
-servers,
-posts,
-servers
+    people,
+    visitors,
+    orders,
+    products,
+    invoices,
+    categories,
+    reviews,
+    servers,
+    posts,
 }

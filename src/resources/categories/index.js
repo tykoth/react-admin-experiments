@@ -1,19 +1,18 @@
+import React from 'react';
 
-
-import CategoryList from './CategoryList';
-import CategoryEdit from './CategoryEdit';
+// import CategoryList from './CategoryList';
+// import CategoryEdit from './CategoryEdit';
 import CategoryCreate from './CategoryCreate';
 
-import React, { Component } from 'react';
 import {
     List,
     EditButton,
     DeleteButton,
     SaveButton,
-    TextInput,
+    // TextInput,
     TextField
 } from 'react-admin';
-import { IgnoreFormProps, NodeView, Tree, NodeForm, NodeActions } from 'ra-tree-ui-materialui';
+import { IgnoreFormProps, NodeView, Tree, NodeActions } from 'ra-tree-ui-materialui';
 
 const CategoriesActions = props => (
     <NodeActions {...props}>
@@ -23,10 +22,9 @@ const CategoriesActions = props => (
             <DeleteButton />
         </IgnoreFormProps>
     </NodeActions>
-)
+);
 
-
- const CategoriesList = (props) => (
+const CategoriesList = (props) => (
     <List {...props} perPage={10000}>
         <Tree>
             <NodeView actions={<CategoriesActions />}>
@@ -35,6 +33,7 @@ const CategoriesActions = props => (
         </Tree>
     </List>
 );
+
 export default {
     list: CategoriesList,
     // edit: CategoryEdit,

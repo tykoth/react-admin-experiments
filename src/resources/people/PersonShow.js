@@ -1,30 +1,32 @@
 import React from 'react';
 import {
     Show,
-    SimpleShowLayout,
+    // SimpleShowLayout,
     TextField,
-    DateInput,
-    EditButton,
-    Filter,
-    List,
-    NullableBooleanInput,
-    NumberField,
-    Responsive,
-    SearchInput,
+    // DateInput,
+    // EditButton,
+    // Filter,
+    // List,
+    // NullableBooleanInput,
+    // NumberField,
+    // Responsive,
+    // SearchInput,
     TabbedShowLayout,
     TabbedShowLayoutTabs,
     Tab
 } from 'react-admin';
 import Poster from './Poster';
-const permissions = "admin";
+
+// const permissions = "admin";
+
 export const PersonShow = props => (
 
     <Show {...props}>
         <TabbedShowLayout tabs={<TabbedShowLayoutTabs scrollable={true}/>}>
             <Tab label="Profile">
-            <Poster source="avatar" />
-            <TextField source="first_name" />
-            <TextField source="last_name" />
+                <Poster source="avatar" />
+                <TextField source="first_name" />
+                <TextField source="last_name" />
             </Tab>
             <Tab label="Contats"></Tab>
             <Tab label="Activities"></Tab>
@@ -32,11 +34,11 @@ export const PersonShow = props => (
             <Tab label="Content"></Tab>
             <Tab label="Configure"></Tab>
             <Tab label="Research"></Tab>
-            </TabbedShowLayout>
+        </TabbedShowLayout>
     </Show>
     // <Show {...props}>
     //     <SimpleShowLayout>
-    //         
+    //
     //         <TextField source="id" />
     //     </SimpleShowLayout>
     // </Show>
