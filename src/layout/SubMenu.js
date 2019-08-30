@@ -14,15 +14,15 @@ import { translate } from 'react-admin';
 const styles = {
     listItem: {
         paddingLeft: '1rem',
-        color:"white"
+        // color:"white"
     },
     listItemText: {
         paddingLeft: 2,
         fontSize: '1rem',
-        color:"white"
+        // color:"white"
     },
     listItemIcon: {
-        color:'white'
+        // color:'white'
     },
     sidebarIsOpen: {
         paddingLeft: 25,

@@ -13,7 +13,8 @@ const styles = theme => ({
         flexDirection: 'column',
         zIndex: 1,
         minHeight: '100vh',
-        backgroundColor: theme.palette.background.default,
+        // backgroundColor: theme.palette.background.default,
+        // backgroundColor: 'blue',
         position: 'relative',
     },
     appFrame: {
@@ -32,7 +33,7 @@ const styles = theme => ({
         flexGrow: 2,
         padding:0,
         width:'100%',
-        // padding: theme.spacing.unit * 3,
+        padding: theme.spacing.unit * 3,
         marginTop: '0em',
         // paddingLeft: 5,
         overflow:'auto',
@@ -45,7 +46,8 @@ const CustomSidebar = props => (
     <Sidebar
         {...props}
          style={{
-             backgroundColor:"rgba(0,0,0,0.75)"
+            //  height:'100vh',
+            //  backgroundColor:"rgba(0,0,0,0.75)"
          }}
     />
 );
@@ -59,13 +61,14 @@ const CustomLayout = props => (
         }}
         appBar={AppBar}
         sidebar={CustomSidebar}
-        menu={Menu}
+        // menu={Menu}
     />
 );
 
 export default connect(
     state => ({
-        theme: state.theme === 'dark' ? darkTheme : state.theme === 'newtheme' ? newTheme : lightTheme,
+        // theme: state.theme === 'light' ? lightTheme : darkTheme
+        theme: state.theme === 'dark' ? darkTheme : state.theme === 'light' ? lightTheme : newTheme,
     }),
     {}
 )(withStyles(styles)(CustomLayout));
