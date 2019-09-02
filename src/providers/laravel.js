@@ -11,7 +11,7 @@ import {
     GET_MANY_REFERENCE,
 } from 'react-admin';
 
-const apiUrl = 'http://app.heyjob.dev.br/api';
+const apiUrl = 'http://localhost:8002/api';
 
 /**
  * Maps react-admin queries to my REST API
@@ -110,7 +110,13 @@ export default (type, resource, params) => new Promise((resolve, reject) => {
         .then(response => {
             // console.log(response);
             // alert('ok');
-            resolve(response);
+
+            if(type === GET_ONE){
+                resolve({data:response})
+            } else {
+                resolve(response);
+            }
+            
             // resolve({
             //     data: response.data,
             //     total: response.total,

@@ -10,6 +10,7 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';
+import saturnJpg from './saturn.jpg'
 import {
     MuiThemeProvider,
     createMuiTheme,
@@ -19,7 +20,7 @@ import LockIcon from '@material-ui/icons/Lock';
 
 import { Notification, translate, userLogin } from 'react-admin';
 
-import { lightTheme } from './themes';
+import { lightTheme, newTheme } from './themes';
 
 const styles = theme => ({
     main: {
@@ -28,13 +29,15 @@ const styles = theme => ({
         minHeight: '100vh',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        background: 'url(https://source.unsplash.com/random/1600x900)',
+        backgroundImage:"url(" + saturnJpg + ")",
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
     },
     card: {
         minWidth: 300,
         marginTop: '6em',
+        backgroundColor:"rgba(0,0,0,0.7)",
+        border:"1px solid blue"
     },
     avatar: {
         margin: '1em',
@@ -48,13 +51,14 @@ const styles = theme => ({
         marginTop: '1em',
         display: 'flex',
         justifyContent: 'center',
-        color: theme.palette.grey[500],
+        color: "white",
     },
     form: {
         padding: '0 1em 1em 1em',
     },
     input: {
         marginTop: '1em',
+        color:"white !important"
     },
     actions: {
         padding: '0 1em 1em 1em',
@@ -180,7 +184,7 @@ const EnhancedLogin = enhance(Login);
 // Because otherwise the withStyles() HOC used in EnhancedLogin won't get
 // the right theme
 const LoginWithTheme = props => (
-    <MuiThemeProvider theme={createMuiTheme(lightTheme)}>
+    <MuiThemeProvider theme={createMuiTheme(newTheme)}>
         <EnhancedLogin {...props} />
     </MuiThemeProvider>
 );

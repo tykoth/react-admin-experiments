@@ -44,6 +44,14 @@ const Configuration = ({
             <Button
                 variant="raised"
                 className={classes.button}
+                color={theme === 'black' ? 'primary' : 'default'}
+                onClick={() => changeTheme('black')}
+            >
+                {translate('Black')}
+            </Button>
+            <Button
+                variant="raised"
+                className={classes.button}
                 color={theme === 'newtheme' ? 'primary' : 'default'}
                 onClick={() => changeTheme('newtheme')}
             >

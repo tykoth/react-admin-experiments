@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Layout, Sidebar } from 'react-admin';
 import AppBar from './AppBar';
 import Menu from './Menu';
-import { darkTheme, lightTheme, newTheme } from './themes';
+import { darkTheme, lightTheme, newTheme, blackTheme } from './themes';
 import { withStyles } from '@material-ui/core/styles';
 // import saturnJpg from './saturn.jpg'
 
@@ -46,7 +46,8 @@ const CustomSidebar = props => (
     <Sidebar
         {...props}
          style={{
-            //  height:'100vh',
+             height:'100vh',
+             overflow:'auto'
             //  backgroundColor:"rgba(0,0,0,0.75)"
          }}
     />
@@ -68,7 +69,11 @@ const CustomLayout = props => (
 export default connect(
     state => ({
         // theme: state.theme === 'light' ? lightTheme : darkTheme
-        theme: state.theme === 'dark' ? darkTheme : state.theme === 'light' ? lightTheme : newTheme,
+        theme: state.theme === 'dark' ?  darkTheme : 
+                state.theme === 'light' ? lightTheme :
+                state.theme == 'black' ? blackTheme :
+                newTheme 
+            
     }),
     {}
 )(withStyles(styles)(CustomLayout));
