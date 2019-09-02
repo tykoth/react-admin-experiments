@@ -62,7 +62,7 @@ const CustomLayout = props => (
         }}
         appBar={AppBar}
         sidebar={CustomSidebar}
-        // menu={Menu}
+        menu={Menu}
     />
 );
 
