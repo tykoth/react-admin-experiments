@@ -16,7 +16,11 @@ import themeReducer from './themeReducer';
 import { Login, Layout } from './layout';
 import { Dashboard } from './dashboard';
 import englishMessages from './i18n/en';
-import dexieDataProxiver from './providers/dexie'
+// import dexieDataProxiver from './providers/dexie'
+import dexieDataProxiver from 'ra-data-dexie';
+
+
+
 
 /**
  * Locale language transaltion provider.
@@ -46,7 +50,26 @@ class App extends Component {
     async componentWillMount() {
 
 
-        const dataProvider = dexieDataProxiver;
+        const dataProvider = dexieDataProxiver('APP', 1, {
+            // from 
+            people:"++id,first_name,last_name,email,address,zipcode,city,avatar,birthday,first_seen,last_seen,has_ordered,latest_purchase,has_newsletter,groups,nb_commands,total_spent",
+            customers:"++id,first_name,last_name,email,address,zipcode,city,avatar,birthday,first_seen,last_seen,has_ordered,latest_purchase,has_newsletter,groups,nb_commands,total_spent",
+            categories:"++id,name,parent_id",
+            products:"++id,category_id,reference,width,height,price,thumbnail,image,description,stock",
+            commands:"++id,reference,date,customer_id,basket,total_ex_taxes,delivery_fees,tax_rate,taxes,total,status,returned",
+            invoices:"++id,date,command_id,customer_id,total_ex_taxes,delivery_fees,tax_rate,taxes,total",
+            reviews:"++id,date,status,command_id,product_id,customer_id,rating,comment",
+          
+            tags:"++id,name,parent_id,published",
+            servers: '++id,name,description,ip,hostname,status,operating_system,ssh_port,created,updated',
+            hosts:"++id,name,description,ip,hostname,macaddress,operating_system,status,created,updated",
+            todos: '++id,title',
+            history:'++id,url,src,alt,href,time',
+            galleries:'++id,title,host,url,slug,src,hash',
+          
+            users:"++id,name,username,email,avatar,created,updated",
+            posts:"++id,title,body,created,updated"
+          });
         this.setState({ dataProvider });
     }
 

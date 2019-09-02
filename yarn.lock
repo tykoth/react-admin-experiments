@@ -9124,6 +9124,17 @@ ra-core@^2.9.6:
     redux-saga "~0.16.0"
     reselect "~3.0.0"
 
+ra-data-dexie@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/ra-data-dexie/-/ra-data-dexie-1.1.1.tgz#c6e61455605a9c5522fc1ee4f867067022a46e9b"
+  integrity sha512-hrNiRiBCh1D6a7TUKKTrC24wblFkdidacM4k0K72gristqprr6IC13NlHwisF1dc2n7+uI4tnDG7+lWqRxbSog==
+  dependencies:
+    babel-plugin-transform-object-rest-spread "^6.26.0"
+    dexie "^2.0.4"
+    lodash "^4.17.11"
+    query-string "~5.1.1"
+    react-admin "^2.3.1"
+
 ra-data-fakerest@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/ra-data-fakerest/-/ra-data-fakerest-2.6.0.tgz#eb43c3b3ce054b35a7d2edbc11ffd115279d29c8"
@@ -9333,7 +9344,7 @@ react-ace@^7.0.2:
     lodash.isequal "^4.5.0"
     prop-types "^15.7.2"
 
-react-admin@^2.9.5:
+react-admin@^2.3.1, react-admin@^2.9.5:
   version "2.9.6"
   resolved "https://registry.yarnpkg.com/react-admin/-/react-admin-2.9.6.tgz#ee5d4198a03d9cbc157a10ecaa901464b54ae3b6"
   integrity sha512-AhhsbJxabP9SaA1hBAY12fEVL0GxlBPld+vcVAlThtb0zy8HVlUxdD1pqKcNnWClFmKsgP0LFEalcZP+vcgkzQ==
