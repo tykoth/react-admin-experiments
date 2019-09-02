@@ -15,9 +15,7 @@ import Dexie from 'dexie';
 
 const db = new Dexie('APP');
 
-
-
-// db.delete();
+db.delete();
 db.version(1).stores({
   // from 
   people:"++id,first_name,last_name,email,address,zipcode,city,avatar,birthday,first_seen,last_seen,has_ordered,latest_purchase,has_newsletter,groups,nb_commands,total_spent",
@@ -30,6 +28,7 @@ db.version(1).stores({
 
   tags:"++id,name,parent_id,published",
   servers: '++id,name,description,ip,hostname,status,operating_system,ssh_port,created,updated',
+  hosts:"++id,name,description,ip,hostname,macaddress,operating_system,status,created,updated",
   todos: '++id,title',
   history:'++id,url,src,alt,href,time',
   galleries:'++id,title,host,url,slug,src,hash',
@@ -38,6 +37,8 @@ db.version(1).stores({
   posts:"++id,title,body,created,updated"
 });
 
+
+
 /**
  * @param {string} type Request type, e.g GET_LIST
  * @param {string} resource Resource name, e.g. "posts"
@@ -45,6 +46,7 @@ db.version(1).stores({
  * @returns {Promise} the Promise for response
  */
 export default (type, resource, params) => new Promise((resolve, reject) => {
+
   console.log([type, resource, params]);
     db.open();
     switch (type) {

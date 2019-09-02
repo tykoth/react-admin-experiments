@@ -10,7 +10,6 @@ export default [
     
     <Route exact path="/csvimportercard" component={MainDashboard} />,
     
-    <Route exact path="/hosts" component={HostsEditor} />,
     
     <Route exact path="/configuration" component={Configuration} />,
     <Route exact path="/segments" component={Segments} />,

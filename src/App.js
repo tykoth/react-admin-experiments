@@ -17,8 +17,6 @@ import { Login, Layout } from './layout';
 import { Dashboard } from './dashboard';
 import englishMessages from './i18n/en';
 import dexieDataProxiver from './providers/dexie'
-import laravel from "./providers/laravel";
-import redmine from "./providers/redmine";
 
 /**
  * Locale language transaltion provider.
@@ -46,7 +44,6 @@ class App extends Component {
      * Why you have asnc in componentWillMount?
      */
     async componentWillMount() {
-        // const dataProvider = dexieDataProxiver;
 
 
         const dataProvider = dexieDataProxiver;
@@ -68,7 +65,7 @@ class App extends Component {
         }
         return (
             <Admin
-                title="BETA ADMIN"
+                title="BETA aaaaaa"
                 dataProvider={dataProvider}
                 customReducers={{ theme: themeReducer }}
                 customSagas={sagas}
@@ -236,7 +233,7 @@ class App extends Component {
                   show:ShowGuesser
                 }}/>)}
                 <Resource name="posts"  {...resources.posts} />
-                <Resource name="servers"  {...resources.servers} />
+                <Resource name="hosts"  {...resources.hosts} />
                 
                 <Resource name="people" {...resources.people} />
                 <Resource name="tags" {...resources.tags} />

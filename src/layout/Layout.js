@@ -5,7 +5,6 @@ import AppBar from './AppBar';
 import Menu from './Menu';
 import { darkTheme, lightTheme, newTheme, blackTheme } from './themes';
 import { withStyles } from '@material-ui/core/styles';
-// import saturnJpg from './saturn.jpg'
 
 const styles = theme => ({
     root: {

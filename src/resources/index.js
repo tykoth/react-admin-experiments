@@ -7,6 +7,7 @@ import categories from './categories';
 import reviews from './reviews';
 import servers from './servers';
 import posts from './posts';
+import hosts from './hosts';
 
 // import users from './resources/users';
 
@@ -22,4 +23,5 @@ export default {
     reviews,
     servers,
     posts,
+    hosts
 }

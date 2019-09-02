@@ -52,9 +52,9 @@ class Dashboard extends Component {
     }
 
     fetchData() {
-        this.fetchOrders();
-        this.fetchReviews();
-        this.fetchCustomers();
+        // this.fetchOrders();
+        // this.fetchReviews();
+        // this.fetchCustomers();
     }
 
     async fetchOrders() {

@@ -100,10 +100,8 @@ class Menu extends Component {
                     />
                 </SubMenu>
                 <MenuItemLink
-                    to={`/servers`}
-                    primaryText={translate(`resources.servers.name`, {
-                        smart_count: 2,
-                    })}
+                    to={`/hosts`}
+                    primaryText={"Hosts"}
                     leftIcon={<visitors.icon />}
                     onClick={onMenuClick}
                 />
