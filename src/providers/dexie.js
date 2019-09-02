@@ -15,7 +15,7 @@ import Dexie from 'dexie';
 
 const db = new Dexie('APP');
 
-db.delete();
+// db.delete();
 db.version(1).stores({
   // from 
   people:"++id,first_name,last_name,email,address,zipcode,city,avatar,birthday,first_seen,last_seen,has_ordered,latest_purchase,has_newsletter,groups,nb_commands,total_spent",
