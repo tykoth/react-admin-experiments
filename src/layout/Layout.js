@@ -5,13 +5,15 @@ import AppBar from './AppBar';
 import Menu from './Menu';
 import { darkTheme, lightTheme, newTheme, blackTheme } from './themes';
 import { withStyles } from '@material-ui/core/styles';
-
+import saturnJpg from './saturn.jpg'
+import Scrollbar from 'react-scrollbars-custom';
 const styles = theme => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
         zIndex: 1,
         minHeight: '100vh',
+        backgroundImage:"url(" + saturnJpg + ")",
         // backgroundColor: theme.palette.background.default,
         // backgroundColor: 'blue',
         position: 'relative',
@@ -45,9 +47,10 @@ const CustomSidebar = props => (
     <Sidebar
         {...props}
          style={{
-             height:'100vh',
-             overflow:'auto'
-            //  backgroundColor:"rgba(0,0,0,0.75)"
+            //  height:'100vh',
+             overflow:'auto',
+             backgroundColor:"rgba(0,0,0,0.75)",
+             borderRight:"1px solid rgba(100,100,255,0.8)"
          }}
     />
 );

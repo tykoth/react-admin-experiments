@@ -32,6 +32,7 @@
     "react-draggable": "^3.3.2",
     "react-medium-editor": "^1.8.1",
     "react-scripts": "3.0.1",
+    "react-scrollbars-custom": "^4.0.20",
     "react-splash": "^0.1.0",
     "react-swipeable-views": "^0.13.3",
     "react-swipeable-views-utils": "^0.13.3",
