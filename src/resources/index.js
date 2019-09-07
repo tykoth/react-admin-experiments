@@ -9,9 +9,10 @@ import servers from './servers';
 import posts from './posts';
 import hosts from './hosts';
 
-// import users from './resources/users';
+import users from './users';
 
-// import comments from './resources/comments';
+import comments from './comments';
+import ideas from './ideas';
 
 export default {
     people,
@@ -23,5 +24,8 @@ export default {
     reviews,
     servers,
     posts,
-    hosts
+    hosts,
+    comments,
+    users,
+    ideas
 }

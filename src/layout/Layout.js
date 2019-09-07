@@ -1,19 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Layout, Sidebar } from 'react-admin';
+import { Layout, Sidebar, setSidebarVisibility } from 'react-admin';
 import AppBar from './AppBar';
 import Menu from './Menu';
 import { darkTheme, lightTheme, newTheme, blackTheme } from './themes';
 import { withStyles } from '@material-ui/core/styles';
 import saturnJpg from './saturn.jpg'
 import Scrollbar from 'react-scrollbars-custom';
+import { toggleSidebar   } from 'ra-core';
+import { Button } from '@material-ui/core';
+
 const styles = theme => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
         zIndex: 1,
         minHeight: '100vh',
-        backgroundImage:"url(" + saturnJpg + ")",
+        // backgroundImage:"url(" + saturnJpg + ")",
+        // backgroundPosition: "center center",
+        // backgroundRepeat: "no-repeat",
+        // backgroundSize:" 100% 100%",
+        // transition: "background-color 5000ms linear",
         // backgroundColor: theme.palette.background.default,
         // backgroundColor: 'blue',
         position: 'relative',
@@ -46,25 +53,30 @@ const styles = theme => ({
 const CustomSidebar = props => (
     <Sidebar
         {...props}
-         style={{
-            //  height:'100vh',
-             overflow:'auto',
-             backgroundColor:"rgba(0,0,0,0.75)",
-             borderRight:"1px solid rgba(100,100,255,0.8)"
-         }}
-    />
+        
+    ><div>
+
+{props.children}
+
+    <Button  onClick={() => toggleSidebar()}>  AAA  </Button>
+    </div>
+        </Sidebar>
 );
+
+
 
 const CustomLayout = props => (
     <Layout
+        id="CustomLayoutRoot"
         {...props}
         style={{
-            // backgroundImage:"url(" + saturnJpg + ")",
+            backgroundImage:"url(" + saturnJpg + ")",
             height:"100%"
         }}
         appBar={AppBar}
         sidebar={CustomSidebar}
         menu={Menu}
+        // open={false}
     />
 );
 
@@ -77,5 +89,6 @@ export default connect(
                 newTheme 
             
     }),
-    {}
+    {toggleSidebar}
 )(withStyles(styles)(CustomLayout));
+

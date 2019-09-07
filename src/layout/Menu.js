@@ -12,6 +12,7 @@ import {
     MenuItemLink,
     Responsive,
 } from 'react-admin';
+import { toggleSidebar as toggleSidebarAction } from 'ra-core';
 
 import visitors from '../resources/visitors';
 import orders from '../resources/orders';
@@ -48,7 +49,7 @@ class Menu extends Component {
     };
 
     render() {
-        const { onMenuClick, open, logout, translate } = this.props;
+        const { resources, onMenuClick, open, logout, translate } = this.props;
         return (<Fragment>
          <Scrollbar style={{
             //  position:'fixed',
@@ -58,9 +59,7 @@ class Menu extends Component {
                 <DashboardMenuItem onClick={onMenuClick} />
                 <MenuItemLink
                     to={`/people`}
-                    primaryText={translate(`resources.people.name`, {
-                        smart_count: 2,
-                    })}
+                    primaryText="People Records"
                     leftIcon={<visitors.icon />}
                     onClick={onMenuClick}
                 />
@@ -71,6 +70,18 @@ class Menu extends Component {
                     name="Tools"
                     icon={<BuildIcon />}
                 >
+                <MenuItemLink
+                    to={`/image-crawler`}
+                    primaryText="image-crawler"
+                    leftIcon={<Storage />}
+                    onClick={onMenuClick}
+                />
+                <MenuItemLink
+                    to={`/json2class`}
+                    primaryText="json2class"
+                    leftIcon={<Storage />}
+                    onClick={onMenuClick}
+                />
                 <MenuItemLink
                     to={`/databases`}
                     primaryText="Databases"

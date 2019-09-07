@@ -27,11 +27,9 @@ const HostCreate = ({ classes, ...props }) => (
                 <TextInput source="operating_system" />
             </FormTab>
 
-            <FormTab label="Services" path="address">
+            <FormTab label="Services" path="services">
             </FormTab>
-
-            <FormTab label="Services" path="address">
-            </FormTab>
+            
         </TabbedForm>
     </Create>
 );
