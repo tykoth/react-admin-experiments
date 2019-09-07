@@ -7,11 +7,17 @@ import HostsEditor from './components/tools/HostsEditor';
 import MainDashboard from './components/tools/CSVImporterCard'
 
 import DatabaseTool from './components/tools/DatabaseTool'
+import JsonToClass from './components/tools/JsonToClass';
+import ImageCrawler from './components/tools/ImageCrawler';
 // import ScrollableTabsButtonForce from './components/tools/ScrollableTabsButtonForce'
 export default [
     
     <Route exact path="/csvimportercard" component={MainDashboard} />,
     
+    <Route exact path="/json2class" component={JsonToClass} />,
+    
+    // <Route exact path="/theme-crawler" component={ImageCrawler} />,
+    <Route exact path="/image-crawler" component={ImageCrawler} />,
     <Route exact path="/databases" component={DatabaseTool} />,
     
         

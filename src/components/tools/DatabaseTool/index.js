@@ -7,6 +7,15 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 
 
+import {
+    Edit,
+    DateInput,
+    FormTab,
+    // LongTextInput,
+    TabbedForm,
+    TextInput,
+} from 'react-admin';
+import Dexie from 'dexie';
 
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
@@ -65,18 +74,57 @@ class DatabaseTool extends Component {
 
     constructor(props) {
         super(props);
+        let db = new Dexie('APP');
+        db.open().then(() => {
+            alert("OIE");
 
+            console.log("Version", db.verno);
+            console.log("Tables", db.tables.map(({name, schema}) => ({
+            name,
+            schema
+            })
+            ));
+        })
         // console.log(['wat', JSON.parse(localStorage.getItem('menuItems'))]);
         this.state = {
-            started:false
+            started:false,
+            db:db
         };
+
+        // db.tables.forEach(function (table) {
+        //     console.log("Schema of " + table.name + ": " + JSON.stringify(table.schema));
+        // });
     }
 
     render() {
+        const { db } = this.state;
+        db.open();
+        console.log([
+            db,
+            'opa'
+        ]);
+
+        db.tables.forEach(function (table) {
+            console.log("Schema of " + table.name + ": " + JSON.stringify(table.schema));
+        });
+        db.open();
+        console.log([
+            db,
+            'aaaaa'
+        ]);
+        // db.tables.forEach(function (table) {
+        //     console.log("Schema of " + table.name + ": " + JSON.stringify(table.schema));
+        // });
         return (
 
             <Card>
-                <Title  title="a"/>
+                <Title title="a"/>
+        <TabbedForm toolbar={false}>
+            <FormTab label="Host">
+                <TextInput source="name" />
+            </FormTab>
+
+            <FormTab label="Services" path="address">
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -87,6 +135,11 @@ class DatabaseTool extends Component {
                         </TableRow>
                     </TableHead>
                 </Table>
+            </FormTab>
+
+            <FormTab label="Services" path="address">
+            </FormTab>
+        </TabbedForm>
             </Card>
         )
     }
