@@ -8,6 +8,7 @@ import {
 } from "react-admin";
 import ListGuesser from './components/ListGuesser';
 import AdList from './components/AdList';
+
 import resources from './resources/';
 import customRoutes from './routes';
 import authProvider from './authProvider';
@@ -131,11 +132,10 @@ class App extends Component {
                     height: "100%"
                 }}
             >
-                
                 <Resource name="ideas"  {...resources.ideas} />
+                <Resource name="comments"  {...resources.comments} />
                 <Resource name="users"  {...resources.users} />
                 <Resource name="posts"  {...resources.posts} />
-                <Resource name="comments"  {...resources.comments} />
                 <Resource name="hosts"  {...resources.hosts} />
 
                 <Resource name="people" {...resources.people} />
@@ -145,6 +145,7 @@ class App extends Component {
                 <Resource name="reviews" {...resources.reviews} />
                 <Resource name="categories" {...resources.categories} />
                 <Resource name="products" {...resources.products} />
+
             </Admin>
         );
     }

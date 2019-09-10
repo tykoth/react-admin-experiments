@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Typography } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import HomeIcon from '@material-ui/icons/Home';
+import CodeIcon from '@material-ui/icons/Code';
+import { translate } from 'react-admin';
 
+import Configuration from '../../../configuration/Configuration'
 import { withStyles } from '@material-ui/core/styles';
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
 import Dexie from 'dexie';
-import Card from '@material-ui/core/Card';
 import { Grid } from '@material-ui/core';
 import AceEditor from 'react-ace';
 import brace from 'brace';
@@ -23,6 +31,13 @@ import {
     Toolbar,
     required,
 } from 'react-admin';
+import {
+    LiveProvider,
+    LiveEditor,
+    LiveError,
+    LivePreview
+} from 'react-live'
+// import { NlpManager } from 'node-nlp'
 // import Editor from 'react-medium-editor';
 
 // import classNames from 'classnames';
@@ -118,6 +133,41 @@ require('tracking/build/data/mouth-min.js');
 
 const tracking = window.tracking;
 
+
+
+// const { NlpManager, NerManager } = require('node-nlp');
+
+// const { NerManager } = require('node-nlp');
+
+// const manager = new NerManager({ threshold: 0.8 });
+// manager.addNamedEntityText(
+//   'hero',
+//   'spiderman',
+//   ['en'],
+//   ['Spiderman', 'Spider-man'],
+// );
+// manager.addNamedEntityText(
+//   'hero',
+//   'iron man',
+//   ['en'],
+//   ['iron man', 'iron-man'],
+// );
+// manager.addNamedEntityText('hero', 'thor', ['en'], ['Thor']);
+// manager.addNamedEntityText(
+//   'food',
+//   'burguer',
+//   ['en'],
+//   ['Burguer', 'Hamburguer'],
+// );
+// manager.addNamedEntityText('food', 'pizza', ['en'], ['pizza']);
+// manager.addNamedEntityText('food', 'pasta', ['en'], ['Pasta', 'spaghetti']);
+// manager.findEntities(
+//   'I saw spederman eating speghetti in the city',
+//   'en',
+// ).then(entities => {
+//   // ...
+//   console.log(entities);
+// })
 // const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 // const steps = ['Objetivo', 'Payment details', 'Review your order'];
 
@@ -306,7 +356,7 @@ const styles = theme => ({
     input: {
         display: 'flex',
         padding: 10,
-        fontSize:30
+        fontSize: 30
     },
     iconButton: {
         padding: 10,
@@ -344,11 +394,11 @@ const styles = theme => ({
         fontSize: 16,
     },
     // paper: {
-        // position: 'absolute',
-        // zIndex: 1,
-        // marginTop: theme.spacing.unit,
-        // left: 0,
-        // right: 0,
+    // position: 'absolute',
+    // zIndex: 1,
+    // marginTop: theme.spacing.unit,
+    // left: 0,
+    // right: 0,
     // },
     // divider: {
     //     height: theme.spacing.unit * 2,
@@ -425,20 +475,20 @@ const styles = theme => ({
     },
 
 
-    cardMedia:{
-        position:'relative',
-        opacity:0.5,
+    cardMedia: {
+        position: 'relative',
+        opacity: 0.5,
         height: 140,
     },
-    cardMediaBlocker:{
+    cardMediaBlocker: {
 
-        backgroundColor:'black',
-        position:'absolute',
-        width:'100%',
-        height:'100%',
-        top:'0px',
-        left:'0px',
-        opacity:'1'
+        backgroundColor: 'black',
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        top: '0px',
+        left: '0px',
+        opacity: '1'
     }
     ,
 
@@ -4330,25 +4380,25 @@ class JsonToClass extends Component {
 
         // console.log(['wat', JSON.parse(localStorage.getItem('menuItems'))]);
         this.state = {
-            rows:rows,
-            dialogOpen:false,
-            imageResults:[],
-            smartTextareaModal:false,
-            started:false,
-            value:0,
-            json:[],
-            reactGridHeaders:[],
-            materialTableColumns:[],
-            fields:[],
-            tableName:null,
-            progressOne:0,
-            progressTwo:0,
-            progress:0,
-            activeStep:0,
-            csvImporterCardStep:0,
-            csvImporterCardMaxSteps:10,
-            nlpInput:'',
-            text:''
+            rows: rows,
+            dialogOpen: false,
+            imageResults: [],
+            smartTextareaModal: false,
+            started: false,
+            value: 0,
+            json: [],
+            reactGridHeaders: [],
+            materialTableColumns: [],
+            fields: [],
+            tableName: null,
+            progressOne: 0,
+            progressTwo: 0,
+            progress: 0,
+            activeStep: 0,
+            csvImporterCardStep: 0,
+            csvImporterCardMaxSteps: 10,
+            nlpInput: '',
+            text: ''
         };
 
         // this.rawData = [];
@@ -4386,11 +4436,11 @@ class JsonToClass extends Component {
     // };
 
     openDialog() {
-        this.setState({ dialogOpen:true });
+        this.setState({ dialogOpen: true });
     }
 
     handleCloseDialog() {
-        this.setState({ dialogOpen:false });
+        this.setState({ dialogOpen: false });
     }
 
     getImportedData(data) {
@@ -4403,14 +4453,14 @@ class JsonToClass extends Component {
     }
 
     importData() {
-        const {fields, json, version, tableName} = this.state;
+        const { fields, json, version, tableName } = this.state;
         // const version = db.version();
         const schema = {}
         schema[tableName] = "++id," + fields.join().toString();
-        db.version(version+1).stores(schema);
+        db.version(version + 1).stores(schema);
 
 
-        db.table(tableName).bulkAdd(json).then(function(lastKey) {
+        db.table(tableName).bulkAdd(json).then(function (lastKey) {
             console.log("Done adding 100,000 raindrops all over the place");
             console.log("Last raindrop's id was: " + lastKey); // Will be 100000.
             alert("Fecho");
@@ -4484,7 +4534,7 @@ class JsonToClass extends Component {
                 canvas.height = 300;
                 var ctx = canvas.getContext('2d');
                 // console.log([rect.x, rect.y, rect.width, rect.height]);
-                ctx.drawImage(img, rect.x*times, rect.y*times, rect.width*times, rect.height*times, 0, 0, 300, 300);
+                ctx.drawImage(img, rect.x * times, rect.y * times, rect.width * times, rect.height * times, 0, 0, 300, 300);
                 var dataUrl = canvas.toDataURL();
                 dataUrls.push(dataUrl);
                 // var $img = $("<img>");
@@ -4497,7 +4547,7 @@ class JsonToClass extends Component {
             });
 
             this.setState({
-                imageResults:dataUrls
+                imageResults: dataUrls
             });
 
         });
@@ -4509,7 +4559,7 @@ class JsonToClass extends Component {
     }
 
     handleChange(text, medium) {
-        this.setState({ text:text });
+        this.setState({ text: text });
 
     }
 
@@ -4528,34 +4578,75 @@ class JsonToClass extends Component {
     }
 
     render() {
+        
+        const scope = { 
 
+            Create,
+            FormTab,
+            SaveButton,
+            AutocompleteInput,
+            TabbedForm,
+            TextInput,
+            Toolbar,
+            required,            
+            CodeIcon, Card, CardContent, CardActions, Typography, Button, HomeIcon, translate };
+
+        const code = `
+      
+        <TabbedForm>
+        <FormTab label="Host">
+            <TextInput source="name" />
+            <TextInput source="description" />
+            <TextInput source="ip" />
+            <TextInput source="hostname" />
+            <TextInput source="macaddress" />
+            <TextInput source="operating_system" />
+        </FormTab>
+
+        <FormTab label="Services" path="address">
+        </FormTab>
+
+        <FormTab label="Services" path="address">
+        </FormTab>
+    </TabbedForm>
+      `
         return (
             <Card>
-            <Grid container spacing={16}>
+
+                <LiveProvider code={code} scope={scope}>
+                    <Grid container spacing={16}>
 
 
-            <Grid item xs={4}>
-        <Editor
-                value={jsonData}
-            onChange={() => {
+                    <Grid item xs={6}><LiveEditor /></Grid>
+                    {/* <Grid item xs={4}><LiveError /></Grid> */}
+                    <Grid item xs={6}><LivePreview /></Grid>
+                    </Grid>
+                    
+                    
+                    
+                </LiveProvider>
+                <Grid container spacing={16}>
 
-            }}
-            // ace={ace}
-            // theme="ace/theme/github"
-            // schema={yourSchema}
-        />
-        
-        </Grid>
-            <Grid item xs={8}>
-            <TabbedForm>
-                <FormTab times="OK">
-                    <TextInput />
-                </FormTab>
-            </TabbedForm>
-            </Grid>
-                
-            </Grid>
-            
+
+                    <Grid item xs={4}>
+
+
+                        <Editor
+                            value={jsonData}
+                            onChange={() => {
+
+                            }}
+                        // ace={ace}
+                        // theme="ace/theme/github"
+                        // schema={yourSchema}
+                        />
+
+                    </Grid>
+                    <Grid item xs={8}>
+                    </Grid>
+
+                </Grid>
+
 
             </Card>
         )

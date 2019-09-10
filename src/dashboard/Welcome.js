@@ -10,6 +10,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import CodeIcon from '@material-ui/icons/Code';
 import { withStyles } from '@material-ui/core/styles';
 import { translate } from 'react-admin';
+import Dictaphone from '../components/Dictaphone';
 
 const styles = {
     media: {
@@ -31,6 +32,8 @@ const Welcome = ({ translate }) => (
             </Typography>
             <Typography component="p">
                 Em desenvolvimento
+                <Dictaphone 
+                continuous={true}/>
                 {/* {translate('pos.dashboard.welcome.subtitle')} */}
             </Typography>
         </CardContent>
