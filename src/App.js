@@ -17,7 +17,10 @@ import themeReducer from './themeReducer';
 import { Login, Layout } from './layout';
 import { Dashboard } from './dashboard';
 import englishMessages from './i18n/en';
-// import dexieDataProxiver from './providers/dexie'
+import alasqlDataProxiver from './providers/alasql';
+
+
+
 import dexieDataProxiver from 'ra-data-dexie';
 
 

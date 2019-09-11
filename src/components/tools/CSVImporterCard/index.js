@@ -9,6 +9,7 @@ import Card from '@material-ui/core/Card';
 import { Grid } from '@material-ui/core';
 import AceEditor from 'react-ace';
 import Editor from 'react-medium-editor';
+import CSVImporterCard from './CSVImporterCard';
 
 // import classNames from 'classnames';
 // import Chip from '@material-ui/core/Chip';
@@ -935,75 +936,16 @@ class MainDashboard extends Component {
 
     render() {
 
-        // const { classes  } = this.props;
-        // const { dialogOpen, started, fields, json, materialTableColumns , reactGridHeaders, value, locked,
-        //     progressOne,
-        //     progressTwo, progress, activeStep, smartTextareaModal,
-        //     csvImporterCardStep, csvImporterCardMaxSteps,  playCogs, imageSrc, imageResults,nlpInput
-        // } = this.state;
-        // const graphData = {nodes:[], links:[]};
-        //
-        // const NLPTesterCard = (props) => {
-        //     return ( <Card>
-        //             <CardMedia
-        //                 className={classes.cardMedia}
-        //                 title="Paella dish"
-        //                 image={"http://localhost/uploads/image/proxy/random.php"}
-        //                 backgroundColor="blue"
-        //             >
-        //
-        //
-        //                 <video id="video" controls={false} autoPlay={playCogs} loop={true} style={{ width:'100%', height:'100%'}}>
-        //                     <source src={WebmGogs} type="video/webm" />
-        //                 </video>
-        //                 <div style={{ backgroundColor:'black', position:'relative' }}></div>
-        //             </CardMedia>
-        //             <CardHeader>CSV Parser</CardHeader>
-        //
-        //             <CardContent align="center">
-        //                 <TextField label="Type to analise" fullWidth
-        //                            value={nlpInput}
-        //                            onChange={this.handleNLP}/>
-        //                 {nlpInput}
-        //             </CardContent>
-        //         </Card>
-        //     );
-        //
-        // };
-
-
-
-
-        // const WebCrawlerCard = (props) => {
-        //     return (
-        //         <Card>
-        //             {/* <CardMedia
-        //             className={classes.cardMedia}
-        //             image={"http://localhost/uploads/image/proxy/content4.coedcherry.com/met-art/127550/w_F2883E95F5B1FD24D99CB2043B937465.jpg"}
-        //             title="Paella dish"
-        //             />
-        //
-        //             <CardContent>
-        //
-        //                 <Typography gutterBottom variant="h5" component="h2">
-        //                     Create data by URL
-        //                 </Typography>
-        //                 <Typography component="p">
-        //                     Set the starting URL to schedule a new scan
-        //                 </Typography>
-        //             </CardContent>
-        //             <CardActions>
-        //
-        //
-        //             <Button onClick={this.fetchUrl} variant="outlined" component="span" className={classes.button}>
-        //                 Fetch URL
-        //             </Button>
-        //
-        //             </CardActions> */}
-        //         </Card>  );
-        // };
-
-        // const graphData = this.parseGraphData();
+        const { classes  } = this.props;
+        const { dialogOpen, started, fields, json, materialTableColumns , reactGridHeaders, value, locked,
+            progressOne,
+            progressTwo, progress, activeStep, smartTextareaModal,
+            csvImporterCardStep, csvImporterCardMaxSteps,  playCogs, imageSrc, imageResults,nlpInput
+        } = this.state;
+        const graphData = {nodes:[], links:[]};
+        
+        // const { json } = this.state;
+        
         return (
             <Card>
 
@@ -1011,29 +953,12 @@ class MainDashboard extends Component {
 
 
                     <Grid item xs={6}>
-                        <Editor text={this.state.text} onChange={this.handleChange} />
-
-                        <AceEditor
-                            mode="javascript"
-                            value={"//List"}
-                        />
+                        <CSVImporterCard onSuccess={this.getImportedData} />
                     </Grid>
                     <Grid item xs={6}>
                         <AceEditor
                             mode="javascript"
-                            value={"//Edit"}
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <AceEditor
-                            mode="javascript"
-                            value={"//Create"}
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <AceEditor
-                            mode="javascript"
-                            value={"//Delete"}
+                            value={JSON.stringify(json)}
                         />
                     </Grid>
                 </Grid>

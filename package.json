@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://tykoth.github.io/react-admin-experiments/",
   "dependencies": {
+    "alasql": "^0.4.11",
     "data-generator-retail": "^2.9.5",
     "dexie": "^2.0.4",
     "fakerest": "^2.1.0",

@@ -9,6 +9,7 @@ import MainDashboard from './components/tools/CSVImporterCard'
 import DatabaseTool from './components/tools/DatabaseTool'
 import JsonToClass from './components/tools/JsonToClass';
 import ImageCrawler from './components/tools/ImageCrawler';
+import Experiments from './components/tools/Experiments';
 // import ScrollableTabsButtonForce from './components/tools/ScrollableTabsButtonForce'
 export default [
     
@@ -19,6 +20,7 @@ export default [
     // <Route exact path="/theme-crawler" component={ImageCrawler} />,
     <Route exact path="/image-crawler" component={ImageCrawler} />,
     <Route exact path="/databases" component={DatabaseTool} />,
+    <Route exact path="/experiments" component={Experiments} />,
     
         
     <Route exact path="/configuration" component={Configuration} />,
