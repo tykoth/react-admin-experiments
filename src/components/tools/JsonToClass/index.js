@@ -18,8 +18,12 @@ import 'brace/theme/github'
 import { JsonEditor as Editor } from 'jsoneditor-react'
 import 'jsoneditor-react/es/editor.min.css'
 import {
+  Edit,
   Create,
+  List,
+  Show,
   FormTab,
+  DisabledInput,
   SaveButton,
   AutocompleteInput,
   TabbedForm,
@@ -37,6 +41,7 @@ import {
   NumberField,
   ReferenceField,
   ReferenceArrayField,
+  ReferenceManyField,
   UrlField,
   ListView,
   required,
@@ -4104,7 +4109,7 @@ class JsonToClass extends Component {
   }
 
   importData () {
-      
+
   }
 
   getType (str) {
@@ -4145,11 +4150,13 @@ class JsonToClass extends Component {
   }
 
   render () {
-      
     const scope = {
-
+      Edit,
       Create,
+      List,
+      Show,
       FormTab,
+      DisabledInput,
       SaveButton,
       AutocompleteInput,
       TabbedForm,
@@ -4175,15 +4182,20 @@ class JsonToClass extends Component {
       NumberField,
       ReferenceField,
       ReferenceArrayField,
+      ReferenceManyField,
       UrlField,
       ListView,
       translate
     }
 
-    const { json } = this.state;
+    const { json } = this.state
 
-    const fields = Object.keys(json[0]);
-    const code = `${fields.map(field => `<TextField source="${field}" />`).join('\n')}`
+    const fields = Object.keys(json[0])
+    const code = `  
+    <SimpleForm>
+        
+    ${fields.map(field => `<TextInput source="${field}" />`).join('\n')}
+    </SimpleForm>`
     return (
       <Card>
 
@@ -4195,7 +4207,7 @@ class JsonToClass extends Component {
               <Editor
                 value={json}
                 mode="code"
-                allowedModes={['code','text','tree']}
+                allowedModes={['code', 'text', 'tree']}
                 onChange={this.handleChange}
                 height={200}
               />

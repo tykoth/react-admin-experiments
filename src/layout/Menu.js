@@ -12,7 +12,6 @@ import {
     MenuItemLink,
     Responsive,
 } from 'react-admin';
-import { toggleSidebar as toggleSidebarAction } from 'ra-core';
 
 import visitors from '../resources/visitors';
 import orders from '../resources/orders';
@@ -49,7 +48,7 @@ class Menu extends Component {
     };
 
     render() {
-        const { resources, onMenuClick, open, logout, translate } = this.props;
+        const { onMenuClick, open, logout, translate } = this.props;
         return (<Fragment>
          <Scrollbar style={{
             //  position:'fixed',
@@ -90,33 +89,25 @@ class Menu extends Component {
                 />
                 <MenuItemLink
                     to={`/csvimportercard`}
-                    primaryText={translate(`CSV Importer`, {
-                        smart_count: 2,
-                    })}
+                    primaryText="CSV Importer"
                     leftIcon={<visitors.icon />}
                     onClick={onMenuClick}
                 />
                     <MenuItemLink
                         to={`/hosts`}
-                        primaryText={translate(`resources.customers.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Hosts"
                         leftIcon={<visitors.icon />}
                         onClick={onMenuClick}
                     />
                     <MenuItemLink
                         to={`/dotenv`}
-                        primaryText={translate(`resources.segments.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Dot Env"
                         leftIcon={<LabelIcon />}
                         onClick={onMenuClick}
                     />
                     <MenuItemLink
                         to={`/themeeditor`}
-                        primaryText={translate(`Theme Editor`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Theme Editor"
                         leftIcon={<LabelIcon />}
                         onClick={onMenuClick}
                     />
@@ -129,9 +120,7 @@ class Menu extends Component {
                 />
                 <MenuItemLink
                     to={`/reviews`}
-                    primaryText={translate(`resources.reviews.name`, {
-                        smart_count: 2,
-                    })}
+                    primaryText="Reviews"
                     leftIcon={<reviews.icon />}
                     onClick={onMenuClick}
                 />
@@ -139,22 +128,18 @@ class Menu extends Component {
                     handleToggle={() => this.handleToggle('menuSales')}
                     isOpen={this.state.menuSales}
                     sidebarIsOpen={open}
-                    name="pos.menu.sales"
+                    name="Sales"
                     icon={<orders.icon />}
                 >
                     <MenuItemLink
                         to={`/commands`}
-                        primaryText={translate(`resources.commands.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Orders"
                         leftIcon={<orders.icon />}
                         onClick={onMenuClick}
                     />
                     <MenuItemLink
                         to={`/invoices`}
-                        primaryText={translate(`resources.invoices.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Invoices"
                         leftIcon={<invoices.icon />}
                         onClick={onMenuClick}
                     />
