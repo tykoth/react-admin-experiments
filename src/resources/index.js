@@ -14,6 +14,8 @@ import users from './users';
 import comments from './comments';
 import ideas from './ideas';
 
+import projects from './projects';
+
 export default {
     people,
     visitors,
@@ -27,5 +29,6 @@ export default {
     hosts,
     comments,
     users,
-    ideas
+    ideas,
+    projects
 }

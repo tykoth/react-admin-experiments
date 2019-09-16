@@ -26,41 +26,24 @@ const API_EXTENSION = 'json';
 export default (API_URL, API_KEY) => {
 
   return (type, resource, params) => new Promise((resolve, reject) => {
-      
+      console.log([type, resource, params]);
     
     switch (type) {
 
 
       case DELETE:
-
-        break;
-
-
       case GET_ONE:
-          
-        break;
-
       case CREATE:
-          
-        break;
-
-
       case UPDATE:
-          
+        
+        resolve({data:[]});
         break;
 
       case GET_LIST:
       case GET_MANY:
       case GET_MANY_REFERENCE:
         
-            let url = `${API_URL}/${resource}.json`;
-            
-            return fetch(url)
-                .then(res => res.json())
-                // .then(response => console.log(response));
-                .then(response => {
-                    resolve({data:response.projects})
-                });
+        resolve({data:[]});
         break;
 
 
