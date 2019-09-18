@@ -4,7 +4,7 @@ export default function CSVToArray( strData, strDelimiter ){
     strDelimiter = (strDelimiter || ",");
 
     // Create a regular expression to parse the CSV values.
-    const objPattern = new RegExp(
+    var objPattern = new RegExp(
         (
             // Delimiters.
             "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
@@ -16,24 +16,24 @@ export default function CSVToArray( strData, strDelimiter ){
             "([^\"\\" + strDelimiter + "\\r\\n]*))"
         ),
         "gi"
-    );
+        );
 
 
     // Create an array to hold our data. Give the array
     // a default empty first row.
-    const arrData = [[]];
+    var arrData = [[]];
 
     // Create an array to hold our individual pattern
     // matching groups.
-    const arrMatches = null;
+    var arrMatches = null;
 
 
     // Keep looping over the regular expression matches
     // until we can no longer find a match.
-    while (arrMatches === objPattern.exec(strData)){
+    while (arrMatches = objPattern.exec( strData )){
 
         // Get the delimiter that was found.
-        let strMatchedDelimiter = arrMatches[ 1 ];
+        var strMatchedDelimiter = arrMatches[ 1 ];
 
         // Check to see if the given delimiter has a length
         // (is not the start of string) and if it matches
@@ -42,7 +42,7 @@ export default function CSVToArray( strData, strDelimiter ){
         if (
             strMatchedDelimiter.length &&
             strMatchedDelimiter !== strDelimiter
-        ){
+            ){
 
             // Since we have reached a new row of data,
             // add an empty row to our data array.
@@ -62,12 +62,15 @@ export default function CSVToArray( strData, strDelimiter ){
             strMatchedValue = arrMatches[ 2 ].replace(
                 new RegExp( "\"\"", "g" ),
                 "\""
-            );
+                );
 
         } else {
+
             // We found a non-quoted value.
             strMatchedValue = arrMatches[ 3 ];
+
         }
+
 
         // Now that we have our value string, let's add
         // it to the data array.
@@ -76,4 +79,4 @@ export default function CSVToArray( strData, strDelimiter ){
 
     // Return the parsed data.
     return( arrData );
-}
+}    

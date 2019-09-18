@@ -56,6 +56,7 @@ class App extends Component {
 
     async componentWillMount() {
         // const dataProvider = redmine('http://10.0.0.1:30875');
+        // const dataProvider = generator('call', 'generator');
         const dataProvider = generator('call', 'generator');
         /**
          * @todo Entity tagger para reconhecer tipos de data, email e etc.
@@ -134,8 +135,9 @@ class App extends Component {
                     height: "100%"
                 }}
             >
-                <Resource name="projects"  {...resources.projects} />
-                {/* <Resource name="ideas"  {...resources.ideas} />
+                <Resource name="ideas"  {...resources.ideas} />
+                {/* <Resource name="projects"  {...resources.projects} /> */}
+                {/* 
                 <Resource name="comments"  {...resources.comments} />
                 <Resource name="users"  {...resources.users} />
                 <Resource name="posts"  {...resources.posts} />

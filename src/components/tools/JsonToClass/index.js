@@ -13,8 +13,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { emphasize } from '@material-ui/core/styles/colorManipulator'
 import Dexie from 'dexie'
 import { Grid, Typography } from '@material-ui/core'
-import 'brace/mode/javascript'
-import 'brace/theme/github'
+
 import { JsonEditor as Editor } from 'jsoneditor-react'
 import 'jsoneditor-react/es/editor.min.css'
 import {
