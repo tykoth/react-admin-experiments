@@ -6,8 +6,8 @@ import IdeaList from './IdeaList';
 import IdeaShow from './IdeaShow';
 
 export default {
-    create:IdeaCreate,
+    // create:IdeaCreate,
     list: IdeaList,
-    show: IdeaShow,
-    edit: IdeaEdit
+    // show: IdeaShow,
+    // edit: IdeaEdit
 };

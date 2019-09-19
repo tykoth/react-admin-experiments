@@ -10047,10 +10047,10 @@ ra-core@^2.9.6:
     redux-saga "~0.16.0"
     reselect "~3.0.0"
 
-ra-data-dexie@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/ra-data-dexie/-/ra-data-dexie-1.1.7.tgz#7c13455f5a535f26617e41651f212da48d3c2e3e"
-  integrity sha512-oub+HDlRDPqPIu8/kB7HdRXyavPw12ME3MNUH4q8YAFeWKTrPrwdKEiYckcG/D8zhq94BlZ+CbOjnTDuPxXK9Q==
+ra-data-dexie@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/ra-data-dexie/-/ra-data-dexie-1.1.8.tgz#3ab8885574df8e04fd561fcc3eb86f5a9e0cfa95"
+  integrity sha512-VzpoT37BgCRJRxMhAv924vRzXuDIoEOysr6KLLTJeKbNnFZ2+VoDUpAz1r9XlnK8j4O6qC3hqKL+juSYPeHmDQ==
   dependencies:
     dexie "^2.0.4"
     react-admin "^2.3.1"

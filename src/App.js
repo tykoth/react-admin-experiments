@@ -23,7 +23,7 @@ import englishMessages from './i18n/en';
 
 
 import generator from "./providers/generator";
-
+import dexieDataProxiver from 'ra-data-dexie'
 
 
 /**
@@ -49,6 +49,7 @@ class App extends Component {
         super(props);
 
         this.state = {
+            experiment:1,
             dataProvider:null
         }
         
@@ -57,7 +58,7 @@ class App extends Component {
     async componentWillMount() {
         // const dataProvider = redmine('http://10.0.0.1:30875');
         // const dataProvider = generator('call', 'generator');
-        const dataProvider = generator('call', 'generator');
+        // const dataProvider = generator('call', 'generator');
         /**
          * @todo Entity tagger para reconhecer tipos de data, email e etc.
          */
@@ -65,29 +66,29 @@ class App extends Component {
         // console.log(result);        
         // console.log("OK");
         
-        // const dataProvider = dexieDataProxiver('APP3', 1, {
-        //     // from 
-        //     people: "++id,first_name,last_name,email,address,zipcode,city,avatar,birthday,first_seen,last_seen,has_ordered,latest_purchase,has_newsletter,groups,nb_commands,total_spent",
-        //     customers: "++id,first_name,last_name,email,address,zipcode,city,avatar,birthday,first_seen,last_seen,has_ordered,latest_purchase,has_newsletter,groups,nb_commands,total_spent",
-        //     categories: "++id,name,parent_id",
-        //     products: "++id,category_id,reference,width,height,price,thumbnail,image,description,stock",
-        //     commands: "++id,reference,date,customer_id,basket,total_ex_taxes,delivery_fees,tax_rate,taxes,total,status,returned",
-        //     invoices: "++id,date,command_id,customer_id,total_ex_taxes,delivery_fees,tax_rate,taxes,total",
-        //     reviews: "++id,date,status,command_id,product_id,customer_id,rating,comment",
+        const dataProvider = dexieDataProxiver('APP3', 1, {
+            // from 
+            people: "++id,first_name,last_name,email,address,zipcode,city,avatar,birthday,first_seen,last_seen,has_ordered,latest_purchase,has_newsletter,groups,nb_commands,total_spent",
+            customers: "++id,first_name,last_name,email,address,zipcode,city,avatar,birthday,first_seen,last_seen,has_ordered,latest_purchase,has_newsletter,groups,nb_commands,total_spent",
+            categories: "++id,name,parent_id",
+            products: "++id,category_id,reference,width,height,price,thumbnail,image,description,stock",
+            commands: "++id,reference,date,customer_id,basket,total_ex_taxes,delivery_fees,tax_rate,taxes,total,status,returned",
+            invoices: "++id,date,command_id,customer_id,total_ex_taxes,delivery_fees,tax_rate,taxes,total",
+            reviews: "++id,date,status,command_id,product_id,customer_id,rating,comment",
 
-        //     tags: "++id,name,parent_id,published",
-        //     servers: '++id,name,description,ip,hostname,status,operating_system,ssh_port,created,updated',
-        //     hosts: "++id,name,description,ip,hostname,macaddress,operating_system,status,created,updated",
-        //     todos: '++id,title',
-        //     history: '++id,url,src,alt,href,time',
-        //     galleries: '++id,title,host,url,slug,src,hash',
+            tags: "++id,name,parent_id,published",
+            servers: '++id,name,description,ip,hostname,status,operating_system,ssh_port,created,updated',
+            hosts: "++id,name,description,ip,hostname,macaddress,operating_system,status,created,updated",
+            todos: '++id,title',
+            history: '++id,url,src,alt,href,time',
+            galleries: '++id,title,host,url,slug,src,hash',
 
-        //     users: "++id,name,username,email,role,avatar,created,updated",
-        //     posts: "++id,title,teaser,body,views,average_note,commentable,pictures,published_at,tags,category,subcategory,backlinks,notifications,created,updated",
+            users: "++id,name,username,email,role,avatar,created,updated",
+            posts: "++id,title,teaser,body,views,average_note,commentable,pictures,published_at,tags,category,subcategory,backlinks,notifications,created,updated",
 
-        //     comments: "++id,author,post_id,body,created,updated",
-        //     ideas:"++id,name,created,updated"
-        // });
+            comments: "++id,author,post_id,body,created,updated",
+            ideas:"++id,name,created,updated"
+        });
 
 
         this.setState({ dataProvider });
@@ -109,7 +110,15 @@ class App extends Component {
      * Default render function.
      */
     render() {
-        const { dataProvider } = this.state;
+        const { dataProvider, experiment } = this.state;
+
+        if(!experiment){
+            return (
+                <div className="loader-container">
+                    <div className="loader">CHOOSE AN EXPERIMENT...</div>
+                </div>
+            );
+        }
 
         if (!dataProvider) {
             return (
@@ -136,8 +145,8 @@ class App extends Component {
                 }}
             >
                 <Resource name="ideas"  {...resources.ideas} />
-                {/* <Resource name="projects"  {...resources.projects} /> */}
-                {/* 
+                <Resource name="projects"  {...resources.projects} />
+                
                 <Resource name="comments"  {...resources.comments} />
                 <Resource name="users"  {...resources.users} />
                 <Resource name="posts"  {...resources.posts} />
@@ -149,7 +158,7 @@ class App extends Component {
                 <Resource name="invoices" {...resources.invoices} />
                 <Resource name="reviews" {...resources.reviews} />
                 <Resource name="categories" {...resources.categories} />
-                <Resource name="products" {...resources.products} /> */}
+                <Resource name="products" {...resources.products} /> 
 
             </Admin>
         );
