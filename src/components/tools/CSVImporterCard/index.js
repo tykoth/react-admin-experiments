@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Typography, TextField, Grid , Card } from '@material-ui/core'
+import { Typography, TextField, Grid , Card, Button } from '@material-ui/core'
 
 import { withStyles } from '@material-ui/core/styles'
 import { emphasize } from '@material-ui/core/styles/colorManipulator'
@@ -9,6 +9,8 @@ import CSVImporterCard from './CSVImporterCard'
 
 import { JsonEditor as Editor } from 'jsoneditor-react'
 import 'jsoneditor-react/es/editor.min.css'
+// import Dexie from 'dexie'
+
 
 const styles = theme => ({
   root: {
@@ -210,19 +212,21 @@ class MainDashboard extends Component {
 
   }
 
-  importData () {
-    const { fields, json, version, tableName } = this.state
-    // const version = db.version();
-    // const schema = {}
-    // schema[tableName] = "++id," + fields.join().toString();
-    // db.version(version+1).stores(schema);
+  // importData () {
+  //   const { fields, json, version, tableName } = this.state
 
-    // db.table(tableName).bulkAdd(json).then(function(lastKey) {
-    //     console.log("Done adding 100,000 raindrops all over the place");
-    //     console.log("Last raindrop's id was: " + lastKey); // Will be 100000.
-    //     alert("Fecho");
-    // });
-  }
+  //   const db = new Dexie('APP3');
+  //   db.version(4).stores({
+  //     gitlogs: '++id,repository,commit_hash,author,date,message,changed_files,lines_added,lines_deleted'
+  //   });
+    
+  //   db.open();
+  //   db.table('gitlogs').bulkAdd(json).then(function(lastKey) {
+  //       console.log('Done adding 100,000 raindrops all over the place');
+  //       console.log("Last raindrop's id was: " + lastKey); // Will be 100000.
+  //       alert('Fecho');
+  //   });
+  // }
 
   // function getType(str){
   //     if (typeof str !== 'string') str = str.toString();
@@ -269,8 +273,10 @@ class MainDashboard extends Component {
 
           <Grid item xs={3}>
             <CSVImporterCard onSuccess={this.getImportedData} />
+            {json.length > 0 && <Button color-theme="primary" 
+                variant="raised" onClick={this.importData}>    Dump All to DB</Button> }
           </Grid>
-          <Grid item xs={3} style={{maxHeight:"300px"}}>
+          <Grid item xs={3} style={{maxHeight:'300px'}}>
               {json.length}
               {json.length > 0 && <Editor
               value={json}

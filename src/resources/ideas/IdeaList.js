@@ -40,7 +40,7 @@ const IdeaGrid = ({ ids, data, basePath }) => (
         <Card key={id} style={cardStyle}>
             <CardHeader
                 title={<TextField record={data[id]} source="name" />}
-                subheader={<DateField record={data[id]} source="created_at" />}
+                subheader={<DateField record={data[id]} source="created" />}
                 avatar={<Avatar icon={<PersonIcon />} />}
             />
             <CardContent>
@@ -90,10 +90,11 @@ class IdeaList extends React.Component {
                     {({ match }) => (
                         <Dialog
                             fullWidth={true}
-                            maxWidth={"md"}
+                            maxWidth="md"
                             onClose={this.handleClose}
                             aria-labelledby="simple-dialog-title"
                             open={!!match}>
+
                             <DialogTitle id="form-dialog-title">Create </DialogTitle>
                             <DialogContent>
                                 <DialogContentText></DialogContentText>

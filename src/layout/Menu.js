@@ -5,8 +5,10 @@ import compose from 'recompose/compose';
 import SettingsIcon from '@material-ui/icons/Settings';
 import LabelIcon from '@material-ui/icons/Label';
 import Storage from '@material-ui/icons/Storage';
+import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 import {
+    getResources,
     translate,
     DashboardMenuItem,
     MenuItemLink,
@@ -56,6 +58,13 @@ class Menu extends Component {
              height: '80vh', overflowY:'auto', overflowX: 'hidden'}}>
                 {' '}
                 <DashboardMenuItem onClick={onMenuClick} />
+
+                <MenuItemLink
+                    to={`/gitlogs`}
+                    primaryText="Git Logs"
+                    leftIcon={<visitors.icon />}
+                    onClick={onMenuClick}
+                />
                 <MenuItemLink
                     to={`/people`}
                     primaryText="People Records"
@@ -114,7 +123,7 @@ class Menu extends Component {
                 </SubMenu>
                 <MenuItemLink
                     to={`/hosts`}
-                    primaryText={"Hosts"}
+                    primaryText="Hosts"
                     leftIcon={<visitors.icon />}
                     onClick={onMenuClick}
                 />
@@ -153,9 +162,7 @@ class Menu extends Component {
                 >
                     <MenuItemLink
                         to={`/products`}
-                        primaryText={translate(`resources.products.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Products"
                         leftIcon={<products.icon />}
                         onClick={onMenuClick}
                     />
@@ -177,17 +184,13 @@ class Menu extends Component {
                 >
                     <MenuItemLink
                         to={`/customers`}
-                        primaryText={translate(`resources.customers.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Customers"
                         leftIcon={<visitors.icon />}
                         onClick={onMenuClick}
                     />
                     <MenuItemLink
                         to={`/segments`}
-                        primaryText={translate(`resources.segments.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Segments"
                         leftIcon={<LabelIcon />}
                         onClick={onMenuClick}
                     />
@@ -196,7 +199,7 @@ class Menu extends Component {
                     xsmall={
                         <MenuItemLink
                             to="/configuration"
-                            primaryText={translate('pos.configuration')}
+                            primaryText="Config."
                             leftIcon={<SettingsIcon />}
                             onClick={onMenuClick}
                         />
@@ -219,6 +222,16 @@ const mapStateToProps = state => ({
     locale: state.i18n.locale,
 });
 
+
+// const mapStateToProps = state => ({
+//     resources: getResources(state),
+// });
+//  export default Menu
+// const mapStateToProps = state => ({
+//     resources: getResources(state),
+// });
+// export default withRouter(Menu);
+// export default withRouter(connect(mapStateToProps)(Menu))
 const enhance = compose(
     withRouter,
     connect(

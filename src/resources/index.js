@@ -13,6 +13,7 @@ import users from './users';
 
 import comments from './comments';
 import ideas from './ideas';
+import gitlogs from './gitlogs';
 
 import projects from './projects';
 
@@ -30,5 +31,6 @@ export default {
     comments,
     users,
     ideas,
-    projects
+    projects,
+    gitlogs
 }

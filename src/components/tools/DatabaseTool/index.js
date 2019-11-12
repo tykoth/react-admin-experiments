@@ -74,7 +74,7 @@ class DatabaseTool extends Component {
 
     constructor(props) {
         super(props);
-        let db = new Dexie('APP');
+        let db = new Dexie('APP3');
         db.open().then(() => {
             alert("OIE");
 

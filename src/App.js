@@ -17,15 +17,10 @@ import themeReducer from './themeReducer';
 import { Login, Layout } from './layout';
 import { Dashboard } from './dashboard';
 import englishMessages from './i18n/en';
-
-
-
-
-
+import { Provider, connect } from 'react-redux';
 import generator from "./providers/generator";
 import dexieDataProxiver from 'ra-data-dexie'
-
-
+import withContext from 'recompose/withContext';
 /**
  * Locale language transaltion provider.
  *
@@ -33,27 +28,19 @@ import dexieDataProxiver from 'ra-data-dexie'
  * @param locale
  */
 const i18nProvider = locale => {
-    if (locale === 'fr') {
-        return import('./i18n/fr').then(messages => messages.default);
-    }
-
-    if (locale === 'pt') {
-        return import('./i18n/pt').then(messages => messages.default);
-    }
-    // Always fallback on english
     return englishMessages;
 };
 //
 class App extends Component {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
 
-        this.state = {
+        state = {
             experiment:1,
             dataProvider:null
         }
         
-    }
+    // }
 
     async componentWillMount() {
         // const dataProvider = redmine('http://10.0.0.1:30875');
@@ -66,7 +53,7 @@ class App extends Component {
         // console.log(result);        
         // console.log("OK");
         
-        const dataProvider = dexieDataProxiver('APP3', 1, {
+        const dataProvider = dexieDataProxiver('APP3', 4, {
             // from 
             people: "++id,first_name,last_name,email,address,zipcode,city,avatar,birthday,first_seen,last_seen,has_ordered,latest_purchase,has_newsletter,groups,nb_commands,total_spent",
             customers: "++id,first_name,last_name,email,address,zipcode,city,avatar,birthday,first_seen,last_seen,has_ordered,latest_purchase,has_newsletter,groups,nb_commands,total_spent",
@@ -87,7 +74,9 @@ class App extends Component {
             posts: "++id,title,teaser,body,views,average_note,commentable,pictures,published_at,tags,category,subcategory,backlinks,notifications,created,updated",
 
             comments: "++id,author,post_id,body,created,updated",
-            ideas:"++id,name,created,updated"
+            ideas:"++id,name,description,created,updated",
+
+            gitlogs: "++id,repository,commit_hash,author,date,message,changed_files,lines_added,lines_deleted"
         });
 
 
@@ -129,7 +118,7 @@ class App extends Component {
         }
         return (
             <Admin
-                title="BETA aaaaaa"
+                title="FIX 2019"
                 dataProvider={dataProvider}
                 customReducers={{ theme: themeReducer }}
                 customSagas={sagas}
@@ -144,21 +133,24 @@ class App extends Component {
                     height: "100%"
                 }}
             >
-                <Resource name="ideas"  {...resources.ideas} />
-                <Resource name="projects"  {...resources.projects} />
                 
-                <Resource name="comments"  {...resources.comments} />
-                <Resource name="users"  {...resources.users} />
-                <Resource name="posts"  {...resources.posts} />
+
+                <Resource name="gitlogs" {...resources.gitlogs} />
+                <Resource name="ideas" {...resources.ideas} />
+                {/* <Resource name="projects"  {...resources.projects} /> */}
+                
+                {/* <Resource name="comments"  {...resources.comments} /> */}
+                {/* <Resource name="users"  {...resources.users} /> */}
+                {/* <Resource name="posts"  {...resources.posts} /> */}
                 <Resource name="hosts"  {...resources.hosts} />
 
-                <Resource name="people" {...resources.people} />
-                <Resource name="tags" {...resources.tags} />
-                <Resource name="customers" {...resources.visitors} />
-                <Resource name="invoices" {...resources.invoices} />
-                <Resource name="reviews" {...resources.reviews} />
-                <Resource name="categories" {...resources.categories} />
-                <Resource name="products" {...resources.products} /> 
+                {/* <Resource name="people" {...resources.people} /> */}
+                {/* <Resource name="tags" {...resources.tags} /> */}
+                {/* <Resource name="customers" {...resources.visitors} /> */}
+                {/* <Resource name="invoices" {...resources.invoices} /> */}
+                {/* <Resource name="reviews" {...resources.reviews} /> */}
+                {/* <Resource name="categories" {...resources.categories} /> */}
+                {/* <Resource name="products" {...resources.products} />  */}
 
             </Admin>
         );

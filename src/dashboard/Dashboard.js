@@ -88,11 +88,4 @@ class Dashboard extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    version: state.admin.ui.viewVersion,
-});
-
-export default compose(
-    connect(mapStateToProps),
-    withDataProvider
-)(Dashboard);
+export default Dashboard

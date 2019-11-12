@@ -6,6 +6,7 @@ import {
     // LongTextInput,
     TabbedForm,
     TextInput,
+    DateTimeInput
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -15,9 +16,10 @@ export const styles = {
     
 };
 
+const defaultValue = { created: Date.now() };
 const HostCreate = ({ classes, ...props }) => (
     <Create {...props}>
-        <TabbedForm>
+        <TabbedForm defaultValue={defaultValue}>
             <FormTab label="Host">
                 <TextInput source="name" />
                 <TextInput source="description" />
@@ -25,6 +27,7 @@ const HostCreate = ({ classes, ...props }) => (
                 <TextInput source="hostname" />
                 <TextInput source="macaddress" />
                 <TextInput source="operating_system" />
+                <DateTimeInput source="created" />
             </FormTab>
 
             <FormTab label="Services" path="services">

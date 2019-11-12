@@ -104,8 +104,8 @@ class ReviewList extends Component {
 
 export default compose(
     connect(
-        undefined,
-        { push }
+        // undefined,
+        // { push }
     ),
-    withStyles(styles)
-)(ReviewList);
+    withStyles(styles)(ReviewList)
+);

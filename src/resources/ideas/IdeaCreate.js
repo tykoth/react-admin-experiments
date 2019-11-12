@@ -5,14 +5,14 @@ import { SimpleForm, EditButton, Create, TextInput, ArrayInput, SimpleFormIterat
 import withStyles from '@material-ui/core/styles/withStyles';
 import { required } from 'ra-core';
 import { RichTextInput } from 'ra-input-rich-text';
-const defaultValue = { created_at: Date.now() };
+const defaultValue = { created: Date.now() };
 const IdeaCreate = ({ classes, ...props }) => (
     <Create {...props}>
         <SimpleForm defaultValue={defaultValue}>
             <TextInput autoFocus source="name" />
             <LongTextInput source="description" />
 
-            <DateTimeInput source="created_at" />
+            <DateTimeInput source="created" />
             {/* <RichTextInput source="body"  /> */}
             {/* <ArrayInput
                 source="params"
