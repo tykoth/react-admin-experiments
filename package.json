@@ -5,6 +5,7 @@
   "homepage": "https://tykoth.github.io/react-admin-experiments/",
   "dependencies": {
     "@material-ui/lab": "^4.0.0-alpha.26",
+    "@palustris/ra-lightboxgrid": "^1.0.2",
     "alasql": "^0.4.11",
     "data-generator-retail": "^2.9.5",
     "dexie": "^2.0.4",
