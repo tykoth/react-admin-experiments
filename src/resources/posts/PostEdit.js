@@ -1,50 +1,127 @@
+import RichTextInput from 'ra-input-rich-text';
 import React from 'react';
 import {
-    ReferenceManyField,
+    AutocompleteArrayInput,
+    ArrayInput,
     BooleanInput,
-    // Create,
+    CheckboxGroupInput,
+    Datagrid,
+    DateField,
     DateInput,
-    // FormDataConsumer,
+    DisabledInput,
+    Edit,
+    CardActions,
+    CloneButton,
+    ShowButton,
+    EditButton,
+    FormTab,
+    ImageField,
+    ImageInput,
     LongTextInput,
     NumberInput,
-    // SaveButton,
-    // SimpleForm,
-    TextInput,
-    // Toolbar,
-    Edit,
-    DisabledInput,
-    Datagrid,
+    ReferenceArrayInput,
+    ReferenceManyField,
+    SelectInput,
+    SimpleFormIterator,
+    TabbedForm,
     TextField,
-    DateField,
-    EditButton
+    TextInput,
+    minValue,
+    number,
+    required,
 } from 'react-admin'; // eslint-disable-line import/no-unresolved
-import RichTextInput from 'ra-input-rich-text';
+import PostTitle from './PostTitle';
 
-import { TabbedForm, FormTab } from 'react-admin'
+const EditActions = ({
+    basePath,
+    className,
+    data,
+    hasShow,
+    hasList,
+    resource,
+    ...rest
+}) => (
+    <CardActions className={className} {...rest}>
+        <CloneButton
+            className="button-clone"
+            basePath={basePath}
+            record={data}
+        />
+        {hasShow && <ShowButton basePath={basePath} record={data} />}
+    </CardActions>
+);
 
-export const PostEdit = (props) => (
-    <Edit {...props}>
-        <TabbedForm>
-            <FormTab label="summary">
-                <DisabledInput label="Id" source="id" />
-                <TextInput source="title"  />
-                <LongTextInput source="teaser" />
+const PostEdit = props => (
+    <Edit title={<PostTitle />} actions={<EditActions />} {...props}>
+        <TabbedForm defaultValue={{ average_note: 0 }}>
+            <FormTab label="post.form.summary">
+                <DisabledInput source="id" />
+                <TextInput source="title" validate={required()} resettable />
+                <LongTextInput
+                    source="teaser"
+                    validate={required()}
+                    resettable
+                />
+                <CheckboxGroupInput
+                    source="notifications"
+                    choices={[
+                        { id: 12, name: 'Ray Hakt' },
+                        { id: 31, name: 'Ann Gullar' },
+                        { id: 42, name: 'Sean Phonee' },
+                    ]}
+                />
+                <ImageInput multiple source="pictures" accept="image/*">
+                    <ImageField source="src" title="title" />
+                </ImageInput>
             </FormTab>
-            <FormTab label="body">
-                <RichTextInput source="body"  addLabel={false} />
+            <FormTab label="post.form.body">
+                <RichTextInput
+                    source="body"
+                    label=""
+                    validate={required()}
+                    addLabel={false}
+                />
             </FormTab>
-            <FormTab label="Miscellaneous">
-                <TextInput label="Password (if protected post)" source="password" type="password" />
-                <DateInput label="Publication date" source="published_at" />
-                <NumberInput source="average_note" />
-                <BooleanInput label="Allow comments?" source="commentable" defaultValue />
-                <DisabledInput label="Nb views" source="views" />
+            <FormTab label="post.form.miscellaneous">
+                <ReferenceArrayInput
+                    reference="tags"
+                    source="tags"
+                    filter={{ published: true }}
+                >
+                    <AutocompleteArrayInput fullWidth />
+                </ReferenceArrayInput>
+                <ArrayInput source="backlinks">
+                    <SimpleFormIterator>
+                        <DateInput source="date" />
+                        <TextInput source="url" />
+                    </SimpleFormIterator>
+                </ArrayInput>
+                <DateInput source="published_at" options={{ locale: 'pt' }} />
+                <SelectInput
+                    resettable
+                    source="category"
+                    choices={[
+                        { name: 'Tech', id: 'tech' },
+                        { name: 'Lifestyle', id: 'lifestyle' },
+                    ]}
+                />
+                <NumberInput
+                    source="average_note"
+                    validate={[required(), number(), minValue(0)]}
+                />
+                <BooleanInput source="commentable" defaultValue />
+                <DisabledInput source="views" />
             </FormTab>
-            <FormTab label="comments">
-                <ReferenceManyField reference="comments" target="post_id" addLabel={false}>
+            <FormTab label="post.form.comments">
+                <ReferenceManyField
+                    reference="comments"
+                    target="post_id"
+                    addLabel={false}
+                >
                     <Datagrid>
-                        <TextField source="body" />
                         <DateField source="created_at" />
+                        <TextField source="author.name" />
+                        <TextField source="body" />
                         <EditButton />
                     </Datagrid>
                 </ReferenceManyField>
@@ -52,3 +129,5 @@ export const PostEdit = (props) => (
         </TabbedForm>
     </Edit>
 );
+
+export default PostEdit;

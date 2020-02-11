@@ -58,11 +58,8 @@ const HostList = props => (
         <TextField source="name" />
         <TextField source="ip" />
         <TextField source="hostname" />
-        <TextField source="macaddress" />
         <TextField source="operating_system" />
         <TextField source="status" />
-        <DateField source="created" />
-        <DateField source="updated" />
 
         <EditButton />
     </Datagrid>

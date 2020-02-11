@@ -1,31 +1,13 @@
-import React from 'react';
-import {
-    Responsive,
-    SimpleList,
-    List,
-    Datagrid,
-    EmailField,
-    TextField,
-} from 'react-admin';
+import PeopleIcon from '@material-ui/icons/People';
+import UserCreate from './UserCreate';
+import UserEdit from './UserEdit';
+import UserList from './UserList';
+import UserShow from './UserShow';
 
-export const UserList = props => (
-    <List title="All users" {...props}>
-        <Responsive
-            small={
-                <SimpleList
-                    primaryText={record => record.name}
-                    secondaryText={record => record.username}
-                    tertiaryText={record => record.email}
-                />
-            }
-            medium={
-                <Datagrid>
-                    <TextField source="id" />
-                    <TextField source="name" />
-                    <TextField source="username" />
-                    <EmailField source="email" />
-                </Datagrid>
-            }
-        />
-    </List>
-);
+export default {
+    list: UserList,
+    create: UserCreate,
+    edit: UserEdit,
+    show: UserShow,
+    icon: PeopleIcon,
+};

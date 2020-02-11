@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import SettingsIcon from '@material-ui/icons/Settings';
 import LabelIcon from '@material-ui/icons/Label';
+import Storage from '@material-ui/icons/Storage';
+import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 import {
+    getResources,
     translate,
     DashboardMenuItem,
     MenuItemLink,
@@ -21,6 +24,7 @@ import reviews from '../resources/reviews';
 import SubMenu from './SubMenu';
 
 import BuildIcon from '@material-ui/icons/Build';
+import Scrollbar from 'react-scrollbars-custom';
 
 
 class Menu extends Component {
@@ -47,15 +51,23 @@ class Menu extends Component {
 
     render() {
         const { onMenuClick, open, logout, translate } = this.props;
-        return (
-            <div>
+        return (<Fragment>
+         <Scrollbar style={{
+            //  position:'fixed',
+            //  width:"200px",
+             height: '80vh', overflowY:'auto', overflowX: 'hidden'}}>
                 {' '}
                 <DashboardMenuItem onClick={onMenuClick} />
+
+                <MenuItemLink
+                    to={`/gitlogs`}
+                    primaryText="Git Logs"
+                    leftIcon={<visitors.icon />}
+                    onClick={onMenuClick}
+                />
                 <MenuItemLink
                     to={`/people`}
-                    primaryText={translate(`resources.people.name`, {
-                        smart_count: 2,
-                    })}
+                    primaryText="People Records"
                     leftIcon={<visitors.icon />}
                     onClick={onMenuClick}
                 />
@@ -66,50 +78,58 @@ class Menu extends Component {
                     name="Tools"
                     icon={<BuildIcon />}
                 >
-                    <MenuItemLink
-                        to={`/csvimportercard`}
-                        primaryText={translate(`CSV Importer`, {
-                            smart_count: 2,
-                        })}
-                        leftIcon={<visitors.icon />}
-                        onClick={onMenuClick}
-                    />
+                <MenuItemLink
+                    to={`/image-crawler`}
+                    primaryText="image-crawler"
+                    leftIcon={<Storage />}
+                    onClick={onMenuClick}
+                />
+                <MenuItemLink
+                    to={`/json2class`}
+                    primaryText="json2class"
+                    leftIcon={<Storage />}
+                    onClick={onMenuClick}
+                />
+                <MenuItemLink
+                    to={`/databases`}
+                    primaryText="Databases"
+                    leftIcon={<Storage />}
+                    onClick={onMenuClick}
+                />
+                <MenuItemLink
+                    to={`/csvimportercard`}
+                    primaryText="CSV Importer"
+                    leftIcon={<visitors.icon />}
+                    onClick={onMenuClick}
+                />
                     <MenuItemLink
                         to={`/hosts`}
-                        primaryText={translate(`resources.customers.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Hosts"
                         leftIcon={<visitors.icon />}
                         onClick={onMenuClick}
                     />
                     <MenuItemLink
                         to={`/dotenv`}
-                        primaryText={translate(`resources.segments.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Dot Env"
                         leftIcon={<LabelIcon />}
                         onClick={onMenuClick}
                     />
                     <MenuItemLink
                         to={`/themeeditor`}
-                        primaryText={translate(`Theme Editor`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Theme Editor"
                         leftIcon={<LabelIcon />}
                         onClick={onMenuClick}
                     />
                 </SubMenu>
                 <MenuItemLink
                     to={`/hosts`}
-                    primaryText={"Hosts"}
+                    primaryText="Hosts"
                     leftIcon={<visitors.icon />}
                     onClick={onMenuClick}
                 />
                 <MenuItemLink
                     to={`/reviews`}
-                    primaryText={translate(`resources.reviews.name`, {
-                        smart_count: 2,
-                    })}
+                    primaryText="Reviews"
                     leftIcon={<reviews.icon />}
                     onClick={onMenuClick}
                 />
@@ -117,22 +137,18 @@ class Menu extends Component {
                     handleToggle={() => this.handleToggle('menuSales')}
                     isOpen={this.state.menuSales}
                     sidebarIsOpen={open}
-                    name="pos.menu.sales"
+                    name="Sales"
                     icon={<orders.icon />}
                 >
                     <MenuItemLink
                         to={`/commands`}
-                        primaryText={translate(`resources.commands.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Orders"
                         leftIcon={<orders.icon />}
                         onClick={onMenuClick}
                     />
                     <MenuItemLink
                         to={`/invoices`}
-                        primaryText={translate(`resources.invoices.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Invoices"
                         leftIcon={<invoices.icon />}
                         onClick={onMenuClick}
                     />
@@ -146,9 +162,7 @@ class Menu extends Component {
                 >
                     <MenuItemLink
                         to={`/products`}
-                        primaryText={translate(`resources.products.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Products"
                         leftIcon={<products.icon />}
                         onClick={onMenuClick}
                     />
@@ -170,17 +184,13 @@ class Menu extends Component {
                 >
                     <MenuItemLink
                         to={`/customers`}
-                        primaryText={translate(`resources.customers.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Customers"
                         leftIcon={<visitors.icon />}
                         onClick={onMenuClick}
                     />
                     <MenuItemLink
                         to={`/segments`}
-                        primaryText={translate(`resources.segments.name`, {
-                            smart_count: 2,
-                        })}
+                        primaryText="Segments"
                         leftIcon={<LabelIcon />}
                         onClick={onMenuClick}
                     />
@@ -189,7 +199,7 @@ class Menu extends Component {
                     xsmall={
                         <MenuItemLink
                             to="/configuration"
-                            primaryText={translate('pos.configuration')}
+                            primaryText="Config."
                             leftIcon={<SettingsIcon />}
                             onClick={onMenuClick}
                         />
@@ -200,7 +210,8 @@ class Menu extends Component {
                     small={logout}
                     medium={null} // Pass null to render nothing on larger devices
                 />
-            </div>
+            </Scrollbar>
+        </Fragment>
         );
     }
 }
@@ -211,6 +222,16 @@ const mapStateToProps = state => ({
     locale: state.i18n.locale,
 });
 
+
+// const mapStateToProps = state => ({
+//     resources: getResources(state),
+// });
+//  export default Menu
+// const mapStateToProps = state => ({
+//     resources: getResources(state),
+// });
+// export default withRouter(Menu);
+// export default withRouter(connect(mapStateToProps)(Menu))
 const enhance = compose(
     withRouter,
     connect(

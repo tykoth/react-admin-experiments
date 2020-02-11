@@ -1,13 +1,13 @@
 import BookIcon from '@material-ui/icons/Book';
+import PostCreate from './PostCreate';
+import PostEdit from './PostEdit';
 import PostList from './PostList';
 import PostShow from './PostShow';
-import PostCreate from './PostCreate';
-import { PostEdit } from './PostEdit';
 
 export default {
-  list: PostList,
-  show: PostShow,
-  icon: BookIcon,
-  create: PostCreate,
-  edit:PostEdit
+    list: PostList,
+    create: PostCreate,
+    edit: PostEdit,
+    show: PostShow,
+    icon: BookIcon,
 };

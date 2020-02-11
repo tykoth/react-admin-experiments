@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Create,
+    Edit,
     DateInput,
     FormTab,
     // LongTextInput,
@@ -16,7 +16,7 @@ export const styles = {
 };
 
 const HostEdit = ({ classes, ...props }) => (
-    <Create {...props}>
+    <Edit {...props}>
         <TabbedForm>
             <FormTab label="Host">
                 <TextInput source="name" />
@@ -33,7 +33,7 @@ const HostEdit = ({ classes, ...props }) => (
             <FormTab label="Services" path="address">
             </FormTab>
         </TabbedForm>
-    </Create>
+    </Edit>
 );
 
 export default withStyles(styles)(HostEdit);

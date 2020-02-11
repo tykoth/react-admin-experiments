@@ -22,7 +22,7 @@ const styles = {
         // color:"white"
     },
     listItemIcon: {
-        // color:'white'
+        color:'white'
     },
     sidebarIsOpen: {
         paddingLeft: 25,
