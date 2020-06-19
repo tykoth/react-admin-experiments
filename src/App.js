@@ -135,8 +135,8 @@ class App extends Component {
             >
                 
 
-                <Resource name="gitlogs" {...resources.gitlogs} />
-                <Resource name="ideas" {...resources.ideas} />
+                {/* <Resource name="gitlogs" {...resources.gitlogs} />
+                <Resource name="ideas" {...resources.ideas} /> */}
                 {/* <Resource name="projects"  {...resources.projects} /> */}
                 
                 {/* <Resource name="comments"  {...resources.comments} /> */}
