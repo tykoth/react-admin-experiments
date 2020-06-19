@@ -1,13 +1,16 @@
-import BookIcon from '@material-ui/icons/Book';
-import PostCreate from './PostCreate';
-import PostEdit from './PostEdit';
-import PostList from './PostList';
-import PostShow from './PostShow';
+// in src/posts.js
+import * as React from "react";
+import { List, Datagrid, TextField, ReferenceField, EditButton } from 'react-admin';
 
-export default {
-    list: PostList,
-    create: PostCreate,
-    edit: PostEdit,
-    show: PostShow,
-    icon: BookIcon,
-};
+export const PostList = props => (
+    <List {...props}>
+       <Datagrid>
+           <TextField source="id" />
+            <ReferenceField source="userId" reference="users">
+                <TextField source="name" />
+            </ReferenceField>
+            <TextField source="title" />
+           <EditButton />
+       </Datagrid>
+    </List>
+);
