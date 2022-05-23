@@ -5,7 +5,7 @@
   "homepage": "https://tykoth.github.io/react-admin-experiments/",
   "dependencies": {
     "data-generator-retail": "^2.9.5",
-    "dexie": "^2.0.4",
+    "dexie": "^3.2.2",
     "fakerest": "^2.1.0",
     "fetch-mock": "^7.3.9",
     "graphql-tag": "^2.10.1",
